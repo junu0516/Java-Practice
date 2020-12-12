@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Post 방식 시험</title>
+</head>
+<body>
+    <h2>개인정보입력 - POST</h2>
+	<form action="../url.do" method="post" name="testFrm">
+       
+           <ul style="list-style: none; line-height: 200%;">
+               <li>이름 : <input type="text" name="name" size="10" /></li>
+               <li>성별 : 
+				    남자<input type="radio" name="gender" value="남자" />
+				    여자<input type="radio" name="gender" value="여자" /> 
+               </li>
+               <li>나이 : 
+                   10대 미만<input type="radio" name="age" value="10대 미만" />
+                   10대<input type="radio" name="age" value="10대" />
+                   20대<input type="radio" name="age" value="20대" />
+                   30대<input type="radio" name="age" value="30대" />
+                   40대<input type="radio" name="age" value="40대" />
+                   50대<input type="radio" name="age" value="50대" />				 
+               </li>
+               <li>사는 지역 : 
+                   <select name="region">
+                       <option value="서울">서울</option>
+                       <option value="경기">경기</option>
+                       <option value="강원">강원</option>
+                       <option value="충북">충북</option>
+                       <option value="충남">충남</option>
+                       <option value="경북">경북</option>
+                       <option value="경남">경남</option>
+                       <option value="전북">전북</option>
+                       <option value="전남">전남</option>
+                       <option value="제주">제주</option>
+                   </select>
+               </li>
+               <li>키 :
+                   <input type="range" name="height" min="140" max="200" step="1"> 
+               </li>
+               <li>좋아하는 음식 (모두 고르세요) : 
+                   <label for="food1">한식</label><input type="checkbox" name="food" id="korea" value="한식" />
+                   <label for="food2">중식</label><input type="checkbox" name="food" id="china" value="중식" />
+                   <label for="food3">일식</label><input type="checkbox" name="food" id="japan" value="일식" />
+                   <label for="food4">양식</label><input type="checkbox" name="food" id="western" value="양식" />
+                   <label for="food5">분식</label><input type="checkbox" name="food" id="dduk" value="분식" /> 
+               </li>
+               <li>
+                   <br/>
+                   <input type="submit" name="btnOK" id="btnOK" value="확인"  />&nbsp;&nbsp; 
+                   <input type="reset" value="취소" />
+               </li>
+            </ul>
+       </form>	
+</body>
+</html>

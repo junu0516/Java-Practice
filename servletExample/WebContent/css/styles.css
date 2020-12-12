@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+/*Every Maring will be zero*/
+@import "reset.css";
+@import "variables.css";
+
+/*for compoenents*/
+@import "components/status-bar.css";
+@import "components/nav-bar.css";
+
+/*for screens*/
+@import "screens/login.css";
+
+body{
+    font-family: "Open sans",sans-serif;
+}
+
+.welcome-header, a{
+    margin: 90px 0px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a{
+    color: red;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.welcome-header__title{
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.welcome-header__text{
+    width: 60%;
+    opacity: 0.7;
+}
