@@ -14,4 +14,4 @@
 ### 2. 서블릿을 활용하여 html문서와 자바 파일 서로 연동하기   
 * __매핑한 URL로 이동하도록 form 생성__ : [html파일 보기](https://github.com/junu0516/java-practice/blob/main/servletExample/WebContent/views/testServlet.html)   
 * __서블릿 객체에서 요청 받아서 동적인 웹페이지 작성__ : [코드 보기](https://github.com/junu0516/java-practice/blob/main/servletExample/src/com/serverlets/TestServlet.java)      
-* 서블릿 컨테이너와 웹서버가 요청을 처리하는 과정은 (여기)[https://junu0516.tistory.com/65]에 저장해두었음!
+* 서블릿 컨테이너와 웹서버가 요청을 처리하는 과정은 [여기](https://junu0516.tistory.com/65)에 저장해두었음!
