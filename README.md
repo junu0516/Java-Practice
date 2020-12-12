@@ -1,4 +1,4 @@
-# ★ java-practice : 자바 연습한 코드 저장
+# 자바 연습한 코드 저장
 ### 1. JDBC 활용하여 자바 파일과 db 연동하기   
 * __단순 statement 활용__ : [코드 보기](https://github.com/junu0516/java-practice/blob/main/java%26sql%20%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0/01_Statement/src/com/kh/member/model/dao/MemberDAO.java)   
 
