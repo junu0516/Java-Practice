@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="java&amp;sql 연동하기/01_Statement/src"/>
+	<classpathentry kind="src" path="java&amp;sql 연동하기/02_PreparedStatement/src"/>
+	<classpathentry kind="src" path="java&amp;sql 연동하기/03_Singleton_Service/src"/>
+	<classpathentry kind="src" path="java&amp;sql 연동하기/04_Properties/src"/>
+	<classpathentry kind="src" path="jsp_CRUD게시판 만들어보기/src"/>
+	<classpathentry kind="src" path="jspProject/src"/>
+	<classpathentry kind="src" path="servletExample/src"/>
+	<classpathentry kind="lib" path="java&amp;sql 연동하기/01_Statement/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="java&amp;sql 연동하기/01_Statement/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="java&amp;sql 연동하기/02_PreparedStatement/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="java&amp;sql 연동하기/02_PreparedStatement/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="java&amp;sql 연동하기/03_Singleton_Service/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="java&amp;sql 연동하기/03_Singleton_Service/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="java&amp;sql 연동하기/04_Properties/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="java&amp;sql 연동하기/04_Properties/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="jsp_CRUD게시판 만들어보기/WebContent/cos.jar"/>
+	<classpathentry kind="lib" path="jsp_CRUD게시판 만들어보기/WebContent/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="jsp_CRUD게시판 만들어보기/WebContent/WEB-INF/lib/cos.jar"/>
+	<classpathentry kind="lib" path="jsp_CRUD게시판 만들어보기/WebContent/WEB-INF/lib/ojdbc6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="output" path="java&amp;sql 연동하기/01_Statement/bin"/>
+</classpath>

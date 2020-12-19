@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="java-practice">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/java&amp;sql 연동하기/01_Statement/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/java&amp;sql 연동하기/02_PreparedStatement/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/java&amp;sql 연동하기/03_Singleton_Service/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/java&amp;sql 연동하기/04_Properties/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/jsp_CRUD게시판 만들어보기/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/jspProject/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/servletExample/src"/>
+        <property name="context-root" value="java-practice"/>
+        <property name="java-output-path" value="/java-practice/java&amp;sql 연동하기/01_Statement/bin"/>
+    </wb-module>
+</project-modules>
