@@ -28,7 +28,7 @@
 * 따라서 이러한 방식으로 비즈니스 로직과 화면 구현을 각기 나눠서 처리할 수 있음   
 
 ### 4. 간단한 CRUD 게시판 만들어보기
--  __[메인화면]__(https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/WebContent/views/common/menubar.jsp)에서 로그인, 회원가입으로 이동   
+-  __[메인화면](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/WebContent/views/common/menubar.jsp)__에서 로그인, 회원가입으로 이동   
     - 로그인 버튼을 누르면 서버로 [longin.me](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/src/com/kh/member/controller/LoginServlet.java)로 매핑된 서블릿 객체로 요청을 보냄
 * __로그인, 로그아웃 기능 구현__ 
 
