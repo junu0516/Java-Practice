@@ -34,9 +34,10 @@
     - [LoginServlet.java](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/src/com/kh/member/controller/LoginServlet.java)에서는 JDBC 연동을 통해 로그인한 회원 정보를 담을 loginUser 객체를 생성 후, 이를 세션에 반영하여 redirect함   
     - 로그아웃의 경우 메인화면에서 [logOut.me](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/src/com/kh/member/controller/LogoutServlet.java)로 매핑된 [LogOutServlet.java](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/src/com/kh/member/controller/LogoutServlet.java)에서 현재 세션에 저장된 loginUser 객체 정보를 모두 없앤 후 redirect하는 방식으로 기능 구현   
    
-- __회원가입 및 회원정보 수정, 탈퇴 기능 구현__  
+- __회원가입 및 회원정보 수정, 탈퇴 기능 구현__   
+    - __크게 jsp 화면에서 양식 입력 --> 서블릿으로 request 전송 --> 서블릿에서 비즈니스 로직 처리 후, 이를 다른 jsp 파일로 forward하거나, 기존 context redirect의 방식임__   
+    - __결국 위에서 언급한대로 비즈니스 로직을 서블릿에서 처리하고, 이와 관련해서 만들어서 보여줄 동적 페이지는 jsp 파일로 request, response를 forward 하여 분담하는 것__
     - 메인화면에서 [MemberEnrollFormServlet](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/src/com/kh/member/controller/MemberEnrollFormServlet.java)으로 이동 후, [memberEnrollForm.jsp](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/WebContent/views/member/memberEnrollForm.jsp)으로 request와 response를 forward 해줌   
     - [memberEnrollForm.jsp](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/WebContent/views/member/memberEnrollForm.jsp)로 이동 후, 회원정보를 입력하여 [insert.me]로 매핑된 MemberEnrollServlet 객체로 요청을 보냄   
     - request객체로부터 입력받은 회원정보를 받아 새로운 Member 객체를 만들어 DB에 추가한 후 redirect함   
-    - 
 
