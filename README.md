@@ -28,11 +28,15 @@
 * 따라서 이러한 방식으로 비즈니스 로직과 화면 구현을 각기 나눠서 처리할 수 있음   
 
 ### 4. 간단한 CRUD 게시판 만들어보기
--  __[메인화면](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/WebContent/views/common/menubar.jsp)__에서 로그인, 회원가입으로 이동   
-    - 로그인 버튼을 누르면 서버로 [longin.me](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/src/com/kh/member/controller/LoginServlet.java)로 매핑된 서블릿 객체로 요청을 보냄
-* __로그인, 로그아웃 기능 구현__ 
-
+- __로그인, 로그아웃 기능 구현__
+    - [메인화면](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/WebContent/views/common/menubar.jsp)에서 로그인, 회원가입으로 이동   
+    - 로그인 버튼을 누르면 서버로 [longin.me](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/src/com/kh/member/controller/LoginServlet.java)로 매핑된 서블릿 객체로 요청을 보냄   
+    - [LoginServlet.java](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/src/com/kh/member/controller/LoginServlet.java)에서는 JDBC 연동을 통해 로그인한 회원 정보를 담을 loginUser 객체를 생성 후, 이를 세션에 반영하여 redirect함   
+    - 로그아웃의 경우 메인화면에서 [logOut.me](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/src/com/kh/member/controller/LogoutServlet.java)로 매핑된 [LogOutServlet.java](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/src/com/kh/member/controller/LogoutServlet.java)에서 현재 세션에 저장된 loginUser 객체 정보를 모두 없앤 후 redirect하는 방식으로 기능 구현   
    
-* 회원가입, 회원정보 수정 및 탈퇴 기능 구현  
-
+- __회원가입 및 회원정보 수정, 탈퇴 기능 구현__  
+    - 메인화면에서 [MemberEnrollFormServlet](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/src/com/kh/member/controller/MemberEnrollFormServlet.java)으로 이동 후, [memberEnrollForm.jsp](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/WebContent/views/member/memberEnrollForm.jsp)으로 request와 response를 forward 해줌   
+    - [memberEnrollForm.jsp](https://github.com/junu0516/java-practice/blob/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0/WebContent/views/member/memberEnrollForm.jsp)로 이동 후, 회원정보를 입력하여 [insert.me]로 매핑된 MemberEnrollServlet 객체로 요청을 보냄   
+    - request객체로부터 입력받은 회원정보를 받아 새로운 Member 객체를 만들어 DB에 추가한 후 redirect함   
+    - 
 
