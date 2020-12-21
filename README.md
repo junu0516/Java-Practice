@@ -27,7 +27,8 @@
 * 요청(request)를 위임할 때 서블릿 파일에서 사용하는 객체가 __RequestDispatcher__ 임. HttpServletRequest 객체의 .getRequestDispatcher(); 메소드의 매개변수로 위임받을 jsp문서의 경로를 입력한 후, __.forward()__ 메소드의 매개변수로 HttpServletRequest, HttpServletResponse 객체를 담아 보내주면 됨   
 * 따라서 이러한 방식으로 비즈니스 로직과 화면 구현을 각기 나눠서 처리할 수 있음   
 
-### 4. 간단한 CRUD 게시판 만들어보기
+### 4. 간단한 CRUD 게시판 만들어보기    
+- [기능별 플로우 확인](https://github.com/junu0516/java-practice/tree/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0)    
 - __로그인, 로그아웃 기능 구현__ 
 - __회원가입 및 회원정보 수정, 탈퇴 기능 구현__   
 - __공지사항 등록, 수정, 삭제 기능 구현__   
