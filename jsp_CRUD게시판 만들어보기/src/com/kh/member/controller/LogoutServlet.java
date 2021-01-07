@@ -27,9 +27,8 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//로그아웃 하기 위해 세션에 저장된 loginUser을 모두 없애주도록 함
-		request.getSession().invalidate();
-		response.sendRedirect(request.getContextPath()); //이후 다시 리다이렉트
+		request.getSession().invalidate(); //session에 저장된 값을 모두 비움
+		response.sendRedirect(request.getContextPath());
 	}
 
 	/**

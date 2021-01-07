@@ -5,6 +5,7 @@
 	String userId = member.getUserId();
 	String userPwd = member.getUserPwd();
 	String userName = member.getUserName();
+	String originalPwd = (String)session.getAttribute("originalPwd");
 	String phone = member.getPhone()!=null? member.getPhone():""; 
 	String email = member.getEmail()!=null? member.getEmail():"";
 	String address = member.getAddress()!=null? member.getAddress():"";
@@ -130,7 +131,7 @@
 			}
 			function deleteMember(){
 				var pwd = prompt("현재 비밀번호를 입력해주세요");
-				if("<%=userPwd%>"==pwd){
+				if("<%=originalPwd%>"==pwd){
 					
 					var val = confirm("정말로 탈퇴하시겠습니까?");
 					

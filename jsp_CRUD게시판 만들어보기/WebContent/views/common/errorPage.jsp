@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	//서블릿객체로부터 받아온 request 객체에 저장된 message 사용(getAttribute)
-	String message = (String)request.getAttribute("message");   
+	String message = (String)request.getAttribute("msg");   
 %>
 <!DOCTYPE html>
 <html>

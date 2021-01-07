@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	String message = (String)request.getAttribute("message");
+	String msg = (String)request.getAttribute("msg");
 %>
 <!DOCTYPE html>
 <html>
@@ -9,20 +9,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <title>Insert title here</title>
 <script>
-	var message = "<%= message %>";
-	var result;
-	if(message == "success"){
-		result = "비밀번호 변경 성공";
-	}else if(message == "fail"){
-		result = "비밀번호 변경 실패";
-	}
-	
+	var msg = "<%= msg %>";
 	$(function(){
-		if(message != "null"){ //equals 메소드 제공 안 함
-			alert(result);
+		if(msg != "null"){ //equals 메소드 제공 안 함
+			alert(msg);
 		}
 		
-		if(message == "success"){
+		if(msg == "성공적으로 비밀번호를 변경하였습니다."){
 			window.close();
 		}
 	});

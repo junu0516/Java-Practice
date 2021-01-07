@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!-- 서블릿으로부터 위임받은 attribute 적용 -->
-<%@ page import="java.util.ArrayList, com.kh.notice.model.vo.Notice"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.notice.model.vo.Notice"%>
 <%
 	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
 <style>
 	.outer{
@@ -110,7 +108,7 @@
 		<!-- loginUser이 admin일 경우에만 작성하기가 가능하도록 -->
 			<% if(loginUser != null && loginUser.getUserId().equals("admin")) { %>
 			
-			<button onclick="location.href='<%=contextPath%>/insertForm.no'">작성하기</button> 
+			<button onclick="location.href='<%=contextPath%>/enrollForm.no'">작성하기</button> 
 		<% } %>
 		</div>
 		<!-- NoticeInsertFormServlet 페이지 만들러 가자! -->
@@ -122,8 +120,12 @@
 		<%if (!list.isEmpty()) {%>
 		$(function(){
 			$(".listArea>tbody>tr").click(function(){
+				
 				var nno = $(this).children().eq(0).text();
+				
+				
 				location.href="<%= contextPath %>/detail.no?nno=" + nno;
+			
 			});
 		});
 		<% } %>

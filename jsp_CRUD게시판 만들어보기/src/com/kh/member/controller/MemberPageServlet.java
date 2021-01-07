@@ -32,23 +32,19 @@ public class MemberPageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		//현재 로그인된 상태의 세션에서 로그인유저의 값을 불러옴
 		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
 		String userId = loginUser.getUserId();
 		
 		//입력받은 아이디에 해당하는 멤버를 조회
 		Member member = new MemberService().selectMember(userId);
-		System.out.println("해당 멤버 조회 : "+member);
+		System.out.println("member : "+member);
 		
 		RequestDispatcher view = null;
-		
-		//db에서 조회한 멤버의 존재여부에 따라 forward하게 될 jsp파일이 각기 달라짐
 		if(member!=null) {
 			request.setAttribute("loginUser", loginUser);
 			view = request.getRequestDispatcher("views/common/myPage.jsp");
 		}else {
-			request.setAttribute("message", "조회에 실패했습니다.");
+			request.setAttribute("msg", "조회에 실패했습니다.");
 			view = request.getRequestDispatcher("views/common/errorPage.jsp");
 		}
 		

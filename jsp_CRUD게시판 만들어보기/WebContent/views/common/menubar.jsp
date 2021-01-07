@@ -3,7 +3,7 @@
 <%@ page import="com.kh.member.model.vo.Member" %>
 <%
 	Member loginUser = (Member)session.getAttribute("loginUser");
-	String msg = (String)session.getAttribute("message");
+	String msg = (String)session.getAttribute("msg");
 	String contextPath = request.getContextPath();
 %>
 <!DOCTYPE html>
@@ -40,7 +40,7 @@
 	#loginBtn, #logoutBtn{background-color:orangered;}
 	#userInfo a{text-decoration:none;color:black;}
 	
-	/*네이게이션 스타일*/
+	/*네비게이션 스타일*/
 	.navWrap{background-color:black; width:100%; height:50px}
 	.navWrap>.nav{width:600px;margin:auto;}
 	.menu{text-align:center;color:white;font-weight:bold;width:150px;height:50px;display:table-cell;font-size:20px;vertical-align:middle;}

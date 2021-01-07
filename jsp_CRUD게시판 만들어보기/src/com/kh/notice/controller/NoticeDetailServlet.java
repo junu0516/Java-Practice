@@ -1,6 +1,7 @@
 package com.kh.notice.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,18 +30,19 @@ public class NoticeDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		int nno = Integer.parseInt(request.getParameter("nno"));
+		
 		Notice notice = new NoticeService().selectNotice(nno);
 		
 		String page = "";
-		if(notice!=null) {
+		if(notice != null) {
 			request.setAttribute("notice", notice);
 			page = "views/notice/noticeDetailView.jsp";
 		}else {
-			request.setAttribute("message", "공지사항 조회 실패");
+			request.setAttribute("msg", "공지사항 조회에 실패했습니다.");
 			page = "views/common/errorPage.jsp";
 		}
+		
 		request.getRequestDispatcher(page).forward(request, response);
 	}
 

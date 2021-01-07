@@ -1,6 +1,7 @@
 package com.kh.notice.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,16 +29,16 @@ public class NoticeDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		int nno = Integer.parseInt(request.getParameter("nno"));
 		
 		int result = new NoticeService().deleteNotice(nno);
-		if(result>0) {
-			request.getSession().setAttribute("message", "공지사항 삭제 성공");
+		
+		if(result > 0) {
+			request.getSession().setAttribute("msg", "공지사항 삭제 성공!!");
 			response.sendRedirect("list.no");
 		}else {
-			request.setAttribute("message", "공지사항 삭제 실패");
-			request.getRequestDispatcher("views/common/errorPage.jsp");
+			request.setAttribute("msg", "공지사항 삭제에 실패했습니다.");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	}
 

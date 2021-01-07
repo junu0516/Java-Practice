@@ -37,15 +37,15 @@ public class MemberDeleteServlet extends HttpServlet {
 		
 		if(result>0) {
 			HttpSession session = request.getSession();
-			session.removeAttribute("loginUser"); //탈퇴 후 세션에서 loginUser 데이터 삭제
-			session.setAttribute("message", "회원탈퇴 완료");
+			session.removeAttribute("loginUser"); //로그인 세션 정보 삭제 
+			session.setAttribute("msg", "회원탈퇴가 완료되었습니다. 복구 관련 사항은 관리자에게 문의 하세요");
+			
 			response.sendRedirect(request.getContextPath());
 		}else {
-			request.setAttribute("message", "회원탈퇴 실패");
+			request.setAttribute("msg", "회원탈퇴에 실패하였습니다.");
 			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
 			view.forward(request, response);
 		}
-		
 	}
 
 	/**

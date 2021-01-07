@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "com.kh.notice.model.vo.Notice" %>
+<%@ page import="com.kh.notice.model.vo.Notice" %>
 <%
-	Notice notice = (Notice)request.getAttribute("notice");
+	Notice n = (Notice)request.getAttribute("notice");
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
 	.outer{
@@ -37,13 +37,13 @@
 		<table id="detailArea" border="1">
 			<tr>
 				<td>제목</td>
-				<td colspan="3"><%= notice.getNoticeTitle() %></td>
+				<td colspan="3"><%= n.getNoticeTitle() %></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><%= notice.getNoticeWriter() %></td>
+				<td><%= n.getNoticeWriter() %></td>
 				<td>작성일</td>
-				<td><%= notice.getCreateDate() %></td>
+				<td><%= n.getCreateDate() %></td>
 			</tr>
 			<tr>
 				<td colspan="4">내용</td>
@@ -51,7 +51,7 @@
 			</tr>
 			<tr>
 				<td colspan="4">
-					<p><%= notice.getNoticeContent() %></p>
+					<p><%= n.getNoticeContent() %></p>
 				</td>
 			</tr>	
 		</table>
@@ -64,8 +64,8 @@
 				
 			<!-- 글을 보는 회원이 admin인 경우 수정하기,삭제하기 버튼이 보이도록 하자! -->
 			<% if(loginUser != null && loginUser.getUserId().equals("admin")) { %>
-			<a href="updateForm.no?nno=<%=notice.getNoticeNo()%>">수정하기</a> &nbsp;&nbsp;
-			<a href="delete.no?nno=<%=notice.getNoticeNo()%>">삭제하기</a>
+			<a href="updateForm.no?nno=<%=n.getNoticeNo()%>">수정하기</a> &nbsp;&nbsp;
+			<a href="delete.no?nno=<%=n.getNoticeNo()%>">삭제하기</a>
 		
 			<% } %>
 			<!-- 공지사항을 수정화면으로 넘어가기 위해 NoticeUpdateFormServlet 만들러 가자!! -->

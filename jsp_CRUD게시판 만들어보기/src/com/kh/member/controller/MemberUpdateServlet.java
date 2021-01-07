@@ -32,30 +32,28 @@ public class MemberUpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("utf-8");
-		//회원정보 수정을 위해, input 태그에 입력된 값을 모두 불러옴
+	//	request.setCharacterEncoding("utf-8");
 		String userId = request.getParameter("userId"); 
 		String userName = request.getParameter("userName");
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
 		String address = request.getParameter("address");
-		String[] interests = request.getParameterValues("interest"); 
+		String[] interests = request.getParameterValues("interest"); //값이 여러개이기 때문에 getParameterValues 사용
 		
 		String interest = "";
 		if(interests!=null) {
-			interest = String.join(",",interests); 
+			interest = String.join(",",interests); //(구분자, 배열)로 매개변수 받아서 배열내 모든 문자열을 입력받은 구분자로 구분하여 하나로 합침
 		}
 		
-		Member updatedMember = new MemberService().updateMember(new Member(userId,userName,phone,email,address,interest));
-		if(updatedMember!=null) {
-			request.getSession().setAttribute("message", "회원정보 수정 성공");
-			request.getSession().setAttribute("loginUser", updatedMember);
+		Member updateMem = new MemberService().updateMember(new Member(userId,userName,phone,email,address,interest));
+		if(updateMem != null) {
+			request.getSession().setAttribute("msg", "회원정보 수정에 성공하였습니다.");
+			request.getSession().setAttribute("loginUser", updateMem);
 			response.sendRedirect(request.getContextPath());
-			
 		}else {
-			request.setAttribute("message", "회원정보 수정 실패");
+			request.setAttribute("msg", "회원정보 수정에 실패하였습니다.");
 			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-			view.forward(request, response);
+			view.forward(request,response);
 		}		
 	}
 

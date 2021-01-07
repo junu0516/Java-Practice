@@ -7,7 +7,13 @@ import com.kh.member.model.vo.Member;
 import static com.kh.common.JDBCTemplate.*;
 
 public class MemberService {
-
+	/*
+	 * 로그인 서비스
+	 * @param userId 사용자가 입력한 아이디
+	 * @param userPwd 사용자가 입력한 비밀번호
+	 * @return 입력한 아이디와 비밀번호와 일치하는 회원 객체 리턴
+	 * 
+	 * */
 	public Member loginMember(String userId, String userPwd) {
 		// TODO Auto-generated method stub
 		Connection conn = getConnection();
@@ -20,8 +26,6 @@ public class MemberService {
 		// TODO Auto-generated method stub
 		Connection conn = getConnection();
 		int result = new MemberDao().insertMember(conn,member);
-		
-		//db에 정상적으로 추가되었으면 commit, 그렇지 않으면 rollback 함
 		if(result>0) {
 			commit(conn);
 		}else {
@@ -42,49 +46,52 @@ public class MemberService {
 	public Member updateMember(Member member) {
 		// TODO Auto-generated method stub
 		Connection conn = getConnection();
-		Member updatedMember = null;
+		Member updateMem = null;
 		int result = new MemberDao().updateMember(conn,member);
-		
 		if(result>0) {
-			//결과값이 존재하면 updatedMember 초기화 후 commit
-			updatedMember = new MemberDao().selectMember(conn,member.getUserId());
 			commit(conn);
+			updateMem = new MemberDao().selectMember(conn, member.getUserId());
 		}else {
-			//그렇지 않으면 rollback
 			rollback(conn);
 		}
 		close(conn);
-		return updatedMember;
+		return updateMem;
 	}
 
 	public Member updatePwd(String userId, String userPwd, String newPwd) {
 		// TODO Auto-generated method stub
 		Connection conn = getConnection();
-		Member updatedMember = null;
-		int result = new MemberDao().updateMember(conn,userId,userPwd,newPwd);
-		
+		Member updateMem = null;
+		int result = new MemberDao().updateMember(conn, userId,userPwd,newPwd);
 		if(result>0) {
-			//새롭게 변경된 member 객체 담아준 후 반환
-			updatedMember = new MemberDao().selectMember(conn, userId); 
 			commit(conn);
+			updateMem = new MemberDao().selectMember(conn, userId);
 		}else {
 			rollback(conn);
 		}
 		close(conn);
-		return updatedMember;
+		return updateMem;
 	}
 
 	public int deleteMember(String userId) {
 		// TODO Auto-generated method stub
 		Connection conn = getConnection();
-		int result = 0;
+		int result=0;
 		result = new MemberDao().deleteMember(conn,userId);
 		if(result>0) {
 			commit(conn);
 		}else {
 			rollback(conn);
 		}
+		return result;
+	}
+
+	public int idCheck(String userId) {
+		// TODO Auto-generated method stub
+		Connection conn = getConnection();
 		
+		int result = new MemberDao().idCheck(conn,userId);
+		close(conn);
 		return result;
 	}
 }
