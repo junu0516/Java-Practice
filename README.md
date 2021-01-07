@@ -29,13 +29,16 @@
 * 요청(request)를 위임할 때 서블릿 파일에서 사용하는 객체가 __RequestDispatcher__ 임. HttpServletRequest 객체의 .getRequestDispatcher(); 메소드의 매개변수로 위임받을 jsp문서의 경로를 입력한 후, __.forward()__ 메소드의 매개변수로 HttpServletRequest, HttpServletResponse 객체를 담아 보내주면 됨   
 * 따라서 이러한 방식으로 비즈니스 로직과 화면 구현을 각기 나눠서 처리할 수 있음   
 
-### 4. 간단한 CRUD 게시판 만들어보기    
+### 4. 자바 서블릿으로 쿠키, 세션 활용하기   
+- 쿠키와 세션의 동작구조에 대한 설명은 [여기](https://junu0516.tistory.com/75)를 보자   
+
+### 5. 간단한 CRUD 게시판 만들어보기    
 - [기능별 플로우 확인](https://github.com/junu0516/java-practice/tree/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0)    
-- __로그인, 로그아웃 기능 구현__ 
-- __회원가입 및 회원정보 수정, 탈퇴 기능 구현__   
+- JDBC를 활용하여 서버와 DB 연동   
+- 세션정보를 활용해서 로그인 상태 유지 및 로그아웃 기능 구현   
 - __공지사항 등록, 수정, 삭제 기능 구현__   
     - 등록 후 리스트로 돌아갈 때 forward가 아닌 redirect가 적합   
     - 이유는 [여기](https://junu0516.tistory.com/76)에 정리해두었음   
+- 댓글 작성 및 조회시 [Ajax 비동기 통신 방식](https://junu0516.tistory.com/78)을 활용
 
-### 5. 자바 서블릿으로 쿠키, 세션 활용하기   
-- 쿠키와 세션의 동작구조에 대한 설명은 [여기](https://junu0516.tistory.com/75)를 보자
+
