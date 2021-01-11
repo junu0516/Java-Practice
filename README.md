@@ -17,19 +17,20 @@
 ### 2. 서블릿을 활용하여 html문서와 자바 파일 서로 연동하기   
 * __매핑한 URL로 이동하도록 form 생성__ : [html파일 보기](https://github.com/junu0516/java-practice/blob/main/servletExample/WebContent/views/testServlet.html)   
 * __서블릿 객체에서 요청 받아서 동적인 웹페이지 작성__ : [코드 보기](https://github.com/junu0516/java-practice/blob/main/servletExample/src/com/serverlets/TestServlet.java)      
-* 서블릿 컨테이너와 웹서버가 요청을 처리하는 과정은 [여기](https://junu0516.tistory.com/65)에 저장해두었음!   
+* 서블릿 컨테이너(서블릿 객체의 생명주기를 관리)와 웹서버가 요청을 처리하는 과정은 [여기](https://junu0516.tistory.com/65)를 참고하자
 
 ### 3. JSP 활용해서 화면 구현과 비즈니스 로직을 분리하기
 * __JSP파일을 만들면 html코드 내에 자바 코드를 사용할 수 있기 때문에, 서블릿에서 html을 구현했던 것보다 덜 복잡하다는 이점이 있음__  
 * __따라서 서블릿에서는 비즈니스 로직에 집중하고, 응답화면의 구현은 JSP에서 작성하도록 하여 보다 효율적으로 작업이 가능함__   
-* [01_sum.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/01_sum.jsp)에서 <% %> 내에 1~10까지 합을 구하는 자바 코드를 작성 후, 결과값을 담은 total 변수를 html 문서에 출력되도록 함   
-* [02_date.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/02_date.jsp)에서는 Date객체를 원하는 형식으로 변형한 today 문자열을 그대로 html문서에 나타나도록 함   
+* [01_sum.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/01_sum.jsp)에서 <% %> 내에 1~10까지 합을 구하는 자바 코드를 작성 후, 서블릿에서 결과값을 담은 total 변수를 jsp파일로 넘김   
+* [02_date.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/02_date.jsp)에서는 Date객체를 원하는 형식으로 변형한 today 문자열을 jsp 파일로 넘김
 * [03.menu.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/03_menu.jsp)에서는 선택한 옵션의 value를 전송(request)하여, [MenuOrderServlet.java](https://github.com/junu0516/java-practice/blob/main/jspProject/src/com/kh/controller/MenuOrderServlet.java)에서 선택한 옵션 기반으로 결과값을 도출하여 이를 다시 jsp로 위임함   
-* 위임받은 결과값은 [04.menuResult.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/04_menuResult.jsp)에서 html 문서에 나타나도록 함   
+* 위임받은 결과값은 [04.menuResult.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/04_menuResult.jsp)에서 jsp 파일로 넘김   
 * 요청(request)를 위임할 때 서블릿 파일에서 사용하는 객체가 __RequestDispatcher__ 임. HttpServletRequest 객체의 .getRequestDispatcher(); 메소드의 매개변수로 위임받을 jsp문서의 경로를 입력한 후, __.forward()__ 메소드의 매개변수로 HttpServletRequest, HttpServletResponse 객체를 담아 보내주면 됨   
 * 따라서 이러한 방식으로 비즈니스 로직과 화면 구현을 각기 나눠서 처리할 수 있음   
 
 ### 4. 자바 서블릿으로 쿠키, 세션 활용하기   
+- 기존 요청의 정보를 지속적으로 유지해야할 필요가 있을때 http의 무상태성과 비연결 지향을 극복하기 위한 것
 - 쿠키와 세션의 동작구조에 대한 설명은 [여기](https://junu0516.tistory.com/75)를 보자   
 
 ### 5. 간단한 CRUD 게시판 만들어보기    
