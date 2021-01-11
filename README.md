@@ -40,6 +40,10 @@
 - __공지사항 등록, 수정, 삭제 기능 구현__   
     - 등록 후 리스트로 돌아갈 때 forward가 아닌 redirect가 적합   
     - 이유는 [여기](https://junu0516.tistory.com/76)에 정리해두었음   
-- 댓글 작성 및 조회시 [Ajax 비동기 통신 방식](https://junu0516.tistory.com/78)을 활용
+- 댓글 작성 및 조회시 [Ajax 비동기 통신 방식](https://junu0516.tistory.com/78)을 활용   
+
+# 스프링부트 연습한 코드 저장
+### 1. 스프링부트 환경 설정 및 JUnit테스트 코드 작성   
+- 
 
 
