@@ -1,2 +1,0 @@
-com/junu/springboot/domain/posts/PostsRepositoryTest.java
- com.junu.springboot.domain.posts.PostsRepositoryTest

@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @Entity //JPA의 어노테이션, 테이블과 링크될 클래스임을 나타냄
 public class Posts {
     //Posts 클래스 : 실제 DB의 테이블과 매칭될 클래스(Entity)
-    
+
     @Id //해당 테이블의 PK 필드
     @GeneratedValue(strategy = GenerationType.IDENTITY) //PK의 생성 규칙을 나타냄
     /*springboot 2.0에서는 GenerationType.IDENTITY 옵션을 추가해야 auto_increment가 됨*/
@@ -37,15 +37,15 @@ public class Posts {
         this.content = content;
         this.author = author;
     }
-    
+
     /*
-    * 추가
-    * 일반적인 자바 클래스와 달리 여기서는 getter 메소드만 있고, setter 메소드는 없음
-    * 나중에 코드가 너무 복잡해지는 것을 방지하고자 Entity 클래스에서는 setter 메소드를 만들지 않음
-    * 대신, 필드의 값 변경이 필요하면 명확히 그 목적과 의도를 나타낼 수 있는 메소드를 추가함
-    *
-    * 그렇다면 setter 없이 값을 채우고자 할 경우에는?
-    * --> 생성자를 통해 최종값을 채운 후 DB에 삽입하는 것이 기본적이며,
-    *     변경이 필요한 경우에는 해당 이벤트에 맞는 메소드를 호출하여 변경
-    * */
+     * 추가
+     * 일반적인 자바 클래스와 달리 여기서는 getter 메소드만 있고, setter 메소드는 없음
+     * 나중에 코드가 너무 복잡해지는 것을 방지하고자 Entity 클래스에서는 setter 메소드를 만들지 않음
+     * 대신, 필드의 값 변경이 필요하면 명확히 그 목적과 의도를 나타낼 수 있는 메소드를 추가함
+     *
+     * 그렇다면 setter 없이 값을 채우고자 할 경우에는?
+     * --> 생성자를 통해 최종값을 채운 후 DB에 삽입하는 것이 기본적이며,
+     *     변경이 필요한 경우에는 해당 이벤트에 맞는 메소드를 호출하여 변경
+     * */
 }
