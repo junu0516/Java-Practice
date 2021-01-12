@@ -1,0 +1,5 @@
+com/junu/springboot/domain/posts/Posts.java
+ com.junu.springboot.domain.posts.Posts
+ com.junu.springboot.domain.posts.Posts$PostsBuilder
+com/junu/springboot/domain/posts/PostsRepository.java
+ com.junu.springboot.domain.posts.PostsRepository
