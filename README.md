@@ -1,4 +1,4 @@
-# 자바 연습한 코드 저장
+# 자바 연습한 코드 저장(jdbc, jsp, 스프링, 스프링부트)
 ### 1. JDBC 활용하여 자바 파일과 db 연동하기  
 *  JDBC의 동작과 사용하는 객체의 용도는 [여기](https://junu0516.tistory.com/45?category=926619)를 보도록 하자   
 * __단순 statement 활용__ : [코드 보기](https://github.com/junu0516/java-practice/blob/main/java%26sql%20%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0/01_Statement/src/com/kh/member/model/dao/MemberDAO.java)   
@@ -59,6 +59,13 @@
 ### 2. CRUD 게시판 만들기    
 - [PostsRepositoryTest.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/test/java/com/junu/springboot/domain/posts/PostsRepositoryTest.java)에서 JUnit 테스트 코드 오류 원인 찾아야 함(2021.1.13)   
 - [PostsRepository.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/domain/posts/PostsRepository.java) : JpaRepository 인터페이스 생성
+- [Posts.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/domain/posts/Posts.java) : Entity 클래스
+#### 등록 API 생성(2021.01.15)
+- [PostsApiController.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/web/PostsApiController.java) : Controller에서 API 요청을 받는 역할 수행
+- [PostsService.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/service/posts/PostsService.java) : 트랜젝션, 도메인 기능 간의 순서 보장
+- [PostsSaveRequestDto.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/web/dto/PostsSaveRequestDto.java) : Dto 클래스로 Request 데이터를 받는 역할 수행
+- Entity와 Dto는 서로 유사하지만, Entity는 비즈니스 로직을 처리하기 때문에 Request/Response 데이터를 주고 받으며 자주 변경이 필요하기 때문에 Dto 클래스로 활용하기 적합하지 못함... 그래서 Dto 클래스를 또하나 만드는 것
+
 
 
 
