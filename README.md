@@ -1,4 +1,11 @@
-# JDBC, JSP 연습한 코드 저장
+```java
+##자바 연습한 코드 저장 : 
+- 📋 jdbc , jsp : Ctrl+F+_JDBC, JSP 연습한 코드 저장_ 으로 키워드 검색
+- 📋 spring : Ctrl+F+_스프링 연습한 코드 저장_ 으로 키워드 검색
+- 📋 spring-boot : Ctrl+F+_스프링부트 연습한 코드 저장_ 으로 키워드 검색
+```   
+* * *
+# 💻 JDBC, JSP 연습한 코드 저장
 ### 1. JDBC 활용하여 자바 파일과 db 연동하기  
 *  JDBC의 동작과 사용하는 객체의 용도는 [여기](https://junu0516.tistory.com/45?category=926619)를 보도록 하자   
 * __단순 statement 활용__ : [코드 보기](https://github.com/junu0516/java-practice/blob/main/java%26sql%20%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0/01_Statement/src/com/kh/member/model/dao/MemberDAO.java)   
@@ -40,18 +47,22 @@
 - __공지사항 등록, 수정, 삭제 기능 구현__   
     - 등록 후 리스트로 돌아갈 때 forward가 아닌 redirect가 적합   
     - 이유는 [여기](https://junu0516.tistory.com/76)에 정리해두었음   
-- 댓글 작성 및 조회시 [Ajax 비동기 통신 방식](https://junu0516.tistory.com/78)을 활용   
-* * *
-# 스프링 연습한 코드 저장
+- 댓글 작성 및 조회시 [Ajax 비동기 통신 방식](https://junu0516.tistory.com/78)을 활용  
+ 
+* * *   
+
+# 💻 스프링 연습한 코드 저장
 ### 1. DI, IoC
 - Java Config를 활용한 설정을 위한 어노테이션
     - [_@Configuration_](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/diexam/src/main/java/com/junu/spring/diexam/ApplicationConfig.java) : 스프링 설정 클래스 선언
     - [_@Bean_](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/diexam/src/main/java/com/junu/spring/diexam/ApplicationConfig.java) : bean을 정의
     - [_@ComponentScan_](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/diexam/src/main/java/com/junu/spring/diexam/ApplicationConfig2.java) : @Controller, @Service, @Repository @Component 어노테이션이 붙은 클래스를 찾아 컨테이너에 등록
     - [_@Component_](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/diexam/src/main/java/com/junu/spring/diexam/Car.java) : 컴포넌트 스캔의 대상이 되는 어노테이션
-    - [_@Autowired_](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/diexam/src/main/java/com/junu/spring/diexam/Car.java) : 주입 대상이 되는 bean을 컨테이너에 찾아 주입
-* * *
-# 스프링부트 연습한 코드 저장
+    - [_@Autowired_](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/diexam/src/main/java/com/junu/spring/diexam/Car.java) : 주입 대상이 되는 bean을 컨테이너에 찾아 주입   
+
+* * *   
+
+# 💻 스프링부트 연습한 코드 저장
 ### 1. 스프링부트 환경 설정 및 JUnit테스트 코드 작성   
 - [build.gradle](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/build.gradle)에서 Gradle 프로젝트를 스프링 부트 프로젝트로 환경 설정 / 롬복 설치
 - [Application.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/Application.java) : 프로젝트의 Main 클래스 기능 수행   
