@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 스프링 컨테이너에 빈 객체 생성시 어떻게 생성할 지 정보를 미리 알려주기 -->
+	<bean id="userBean" class="com.junu.spring.diexam.UserBean"></bean> 
+	<!-- Bean 정보 등록해서, 태그에 있는 아이디만 가지고 자동으로 class 속성값으로 지정한 객체를 생성할 수 있음 -->
+	
+	<bean id="e" class="com.junu.spring.diexam.Engine"></bean>
+	<bean id="c" class="com.junu.spring.diexam.Car">
+		<property name="engine" ref="e"> </property> <!-- setter 메소드 지정 --> <!-- ref는 참고할 매개변수명 -->
+	</bean>
+	
+	
+</beans>
