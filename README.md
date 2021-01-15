@@ -44,12 +44,12 @@
 
 # 스프링부트 연습한 코드 저장
 ### 1. 스프링부트 환경 설정 및 JUnit테스트 코드 작성   
-- [build.gradle](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/Practice1/build.gradle)에서 Gradle 프로젝트를 스프링 부트 프로젝트로 환경 설정 / 롬복 설치
-- [Application.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/Practice1/src/main/java/com/junu/practice/springboot/Application.java) : 프로젝트의 Main 클래스 기능 수행   
-- [HelloResponseDtoTest.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/Practice1/src/test/java/com/junu/practice/springboot/web/dto/HelloResponseDtoTest.java)에서 [HelloResponseDto.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%EC%8B%A4%EC%8A%B5/Practice1/src/main/java/com/junu/practice/springboot/web/dto/HelloResponseDto.java) 테스트
+- [build.gradle](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/build.gradle)에서 Gradle 프로젝트를 스프링 부트 프로젝트로 환경 설정 / 롬복 설치
+- [Application.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/Application.java) : 프로젝트의 Main 클래스 기능 수행   
+- [HelloResponseDtoTest.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/test/java/com/junu/springboot/web/dto/HelloResponseDtoTest.java)에서 [HelloResponseDto.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/web/dto/HelloResponseDto.java) 테스트
     - @Getter, @RequiredArgsConstructor 어노테이션을 통해 getter메소드와 생성자가 올바르게 생성되는 지를 테스트할 수 있음    
     - assertThat(검증 대상).isEqualTo(비교 대상);를 통해 원하는 결과값과 일치하는 지를 확인
-- [HelloControllerTest.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/Practice1/src/test/java/com/junu/practice/springboot/HelloControllerTest.java)에서 [HelloController.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/Practice1/src/main/java/com/junu/practice/springboot/web/HelloController.java)의 테스트 코드 수행
+- [HelloControllerTest.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/test/java/com/junu/springboot/HelloControllerTest.java)에서 [HelloController.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/Practice1/src/main/java/com/junu/practice/springboot/web/HelloController.java)의 테스트 코드 수행
     - HelloController.java에서 클래스 선언 이전에 @RestController 어노테이션을 통해 JSON을 반환하는 컨트롤러로 만들어줌
     - @GetMapping(매핑할 url)을 통해 HTTP의 요청을 받을 수 있는 API를 만들어줄 수 있음
     - HelloControllerTest.java를 보면 @Test를 수행할 때, mvc.perform().andExpect() ....으로 테스트 코드를 작성하는데, 이는 mvc.perform()의 결과를 검증하는 것
