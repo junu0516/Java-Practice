@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f59cdb16-22c8-4074-b674-6eedc1ac2318" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/taskHistory/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/4.10.2/taskHistory/taskHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/6.7/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/6.7/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/configuration-cache/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.idea/modules/CRUD.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Spring실습/CRUD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/main/com/junu/springboot/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/main/com/junu/springboot/domain/posts/Posts$PostsBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/main/com/junu/springboot/domain/posts/Posts.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/main/com/junu/springboot/domain/posts/PostsRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/main/com/junu/springboot/service/posts/PostsService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/main/com/junu/springboot/web/HelloController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/main/com/junu/springboot/web/PostsApiController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/main/com/junu/springboot/web/dto/HelloResponseDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/main/com/junu/springboot/web/dto/PostsSaveRequestDto$PostsSaveRequestDtoBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/main/com/junu/springboot/web/dto/PostsSaveRequestDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/test/com/junu/springboot/HelloControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/test/com/junu/springboot/domain/posts/PostsRepositoryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/test/com/junu/springboot/web/PostsApiControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/classes/java/test/com/junu/springboot/web/dto/HelloResponseDtoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/reports/tests/test/classes/com.junu.springboot.web.PostsApiControllerTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/reports/tests/test/packages/com.junu.springboot.web.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/resources/main/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/test-results/test/TEST-com.junu.springboot.web.PostsApiControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/test-results/test/binary/output.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/main/java/com/junu/springboot/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/main/java/com/junu/springboot/domain/posts/Posts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/main/java/com/junu/springboot/domain/posts/PostsRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/main/java/com/junu/springboot/service/posts/PostsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/main/java/com/junu/springboot/web/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/main/java/com/junu/springboot/web/PostsApiController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/main/java/com/junu/springboot/web/dto/HelloResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/main/java/com/junu/springboot/web/dto/PostsSaveRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/test/java/com/junu/springboot/HelloControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/test/java/com/junu/springboot/domain/posts/PostsRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/test/java/com/junu/springboot/web/PostsApiControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/CRUD/src/test/java/com/junu/springboot/web/dto/HelloResponseDtoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/6.7/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/6.7/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/6.7/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/6.7/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/configuration-cache/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.idea/modules/Practice1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/classes/java/main/com/junu/practice/springboot/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/classes/java/main/com/junu/practice/springboot/web/HelloController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/classes/java/main/com/junu/practice/springboot/web/dto/HelloResponseDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/classes/java/test/com/junu/practice/springboot/HelloControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/classes/java/test/com/junu/practice/springboot/web/HelloResponseDtoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/reports/tests/test/classes/com.junu.practice.springboot.HelloControllerTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/reports/tests/test/packages/com.junu.practice.springboot.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/test-results/test/TEST-com.junu.practice.springboot.HelloControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/test-results/test/binary/output.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Spring실습/Practice1/src/main/java/com/junu/practice/springboot/web/HelloController.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CRUD" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1myz73fnna5sKkhAPDmqcWeFLXB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/junu" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\BackendWorkspace\java-practice\Spring실습\CRUD\src\test\java" />
+      <recent name="C:\BackendWorkspace\java-practice\Spring실습\CRUD\src\main\java\com\junu\springboot" />
+      <recent name="C:\BackendWorkspace\java-practice\Spring실습\CRUD\src\main\java\com\junu\springboot\web\dto" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.PostsApiControllerTest.enrollPost">
+    <configuration name="HelloControllerTest.hello_returned" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.junu.springboot.HelloControllerTest.hello_returned&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="HelloResponseDtoTest.lombokTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.junu.springboot.web.dto.HelloResponseDtoTest.lombokTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PostsApiControllerTest.enrollPost" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.junu.springboot.web.PostsApiControllerTest.enrollPost&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="PostsRepositoryTest.selectList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.junu.springboot.domain.posts.PostsRepositoryTest.selectList&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.PostsApiControllerTest.enrollPost" />
+        <item itemvalue="Gradle.PostsRepositoryTest.selectList" />
+        <item itemvalue="Gradle.HelloResponseDtoTest.lombokTest" />
+        <item itemvalue="Gradle.HelloControllerTest.hello_returned" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f59cdb16-22c8-4074-b674-6eedc1ac2318" name="Default Changelist" comment="" />
+      <created>1610480449529</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1610480449529</updated>
+      <workItem from="1610480453235" duration="1346000" />
+      <workItem from="1610509560548" duration="4000" />
+      <workItem from="1610714793608" duration="3546000" />
+      <workItem from="1610722797605" duration="24000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
