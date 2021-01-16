@@ -59,6 +59,15 @@
     - [_@ComponentScan_](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/diexam/src/main/java/com/junu/spring/diexam/ApplicationConfig2.java) : @Controller, @Service, @Repository @Component 어노테이션이 붙은 클래스를 찾아 컨테이너에 등록
     - [_@Component_](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/diexam/src/main/java/com/junu/spring/diexam/Car.java) : 컴포넌트 스캔의 대상이 되는 어노테이션
     - [_@Autowired_](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/diexam/src/main/java/com/junu/spring/diexam/Car.java) : 주입 대상이 되는 bean을 컨테이너에 찾아 주입   
+   
+### 2. Spring JDBC 테스트
+- [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/pom.xml) : Spring 컨텍스트, Spring JDBC 종속성, mySQL 드라이버 추가   
+- @Configuration 명시, 데이터 소스 사용을 위한 사전 설정
+    - [DBConfig.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/config/DBConfig.java) : 데이터 소스 객체를 사용하기 위한 Bean 생성(DataSource 클래스)   
+    - [ApplicationConfig.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/config/ApplicationConfig.java) : @Import 어노테이션에 DBConfig의 클래스 정보를 주입시킴  
+- mySQL 드라이버 연동   
+    - [DataSourceTest.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/main/DataSourceTest.java) : ApplicationContext 인스턴스 생성시, AnnotationConfigApplicationContext의 매개변수로 ApplicationConfig.class만 명시해줘도 됨(DBConfig.class는 이미 주입시켰기 때문)
+    - getBean()을 통해 DataSource 객체를 받은 후, db에 연결 시도(기존 JDBC 템플릿에서의 드라이버 연결과 동일)
 
 * * *   
 
