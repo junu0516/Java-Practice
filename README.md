@@ -73,7 +73,7 @@
 - [Role.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/dto/Role.java) : DTO 객체
 - [RoleDao.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/dao/RoleDao.java) : @Repository 어노테이션을 선언하여, DB와 데이터를 주고받는 저장소 역할을 수행(Data Access Object)
     - Spring 4.0부터 Bean 객체의 경우 @Autowired 없이도 의존성 주입이 가능   
-    - `__RowMapper__` : 각 테이블 행마다 resultSet 객체를 통해 매핑하는 것을 가능하게 하는 객체 / _BeanPropertyRowMapper_ : Bean Property를 담아주는 RowMapper 자동으로 생성
+    - __`RowMapper`__ : 각 테이블 행마다 resultSet 객체를 통해 매핑하는 것을 가능하게 하는 객체 / _BeanPropertyRowMapper_ : Bean Property를 담아주는 RowMapper 자동으로 생성
     - `__NamedParameterJdbcTemplate__` : 바인딩시 문자열로 매핑시킴(결과값 담아주며 ?를 사용하지 않기 때문에 편리) / queryForObject, update, execute 메소드를 각각의 경우에 맞게 사용 
     - `__SqlParameterSource__` : 매개변수로 받은 객체의 인스턴스 변수를 해당 클래스에서 보고 알아서 연동할 DB 테이블의 컬럼명과 매핑시킴 / 따라서 변수명 설정에 주의해야함(SQL : 대문자, Java : 소문자)
     - `__BeanPropertySqlParameterSource__` : SqlParameterSource 클래스의 인스턴스로 생성된 것을 확인할 수 있음 / 빈 객체롤 Map 객체로 변환시키는 역할
