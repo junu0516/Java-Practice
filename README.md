@@ -69,6 +69,18 @@
     - [DataSourceTest.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/main/DataSourceTest.java) : ApplicationContext 인스턴스 생성시, AnnotationConfigApplicationContext의 매개변수로 ApplicationConfig.class만 명시해줘도 됨(DBConfig.class는 이미 주입시켰기 때문)
     - getBean()을 통해 DataSource 객체를 받은 후, db에 연결 시도(기존 JDBC 템플릿에서의 드라이버 연결과 동일)
 
+### 3. SELECT, UPDATE, DELETE 쿼리문 실행
+- [Role.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/dto/Role.java) : DTO 객체
+- [RoleDao.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/dao/RoleDao.java) : @Repository 어노테이션을 선언하여, DB와 데이터를 주고받는 저장소 역할을 수행(Data Access Object)
+    - Spring 4.0부터 Bean 객체의 경우 @Autowired 없이도 의존성 주입이 가능   
+    - _RowMapper_ : 각 테이블 행마다 resultSet 객체를 통해 매핑하는 것을 가능하게 하는 객체 / _BeanPropertyRowMapper_ : Bean Property를 담아주는 RowMapper 자동으로 생성
+    - _NamedParameterJdbcTemplate_ : 바인딩시 문자열로 매핑시킴(결과값 담아주며 ?를 사용하지 않기 때문에 편리) / queryForObject, update, execute 메소드를 각각의 경우에 맞게 사용 
+    - _SqlParameterSource_ : 매개변수로 받은 객체의 인스턴스 변수를 해당 클래스에서 보고 알아서 연동할 DB 테이블의 컬럼명과 매핑시킴 / 따라서 변수명 설정에 주의해야함(SQL : 대문자, Java : 소문자)
+    - _BeanPropertySqlParameterSource_ : SqlParameterSource 클래스의 인스턴스로 생성된 것을 확인할 수 있음 / 빈 객체롤 Map 객체로 변환시키는 역할
+    - _Collections.singletonMap_(변수명, 매핑시킬 변수) : 특정 값만 조회하는 쿼리문의 경우(ex. delete/update~ where 변수 = '';)에는 _singletonMap_을 통해 값을 하나만 넣어서 쓰는 것이 경제적
+- [RoleDaoSqls](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/dao/RoleDaoSqls.java) : 쿼리문을 static final 상수로 선언해서 따로 저장해두면 편함
+    - 기존 JDBC에서는 ?로 매핑했지만, 이렇게 하면 ?가 많아질수록 복잡해지기 때문에 :roleId와 같이 이름으로 매핑
+    
 * * *   
 
 # 💻 스프링부트 연습한 코드 저장
