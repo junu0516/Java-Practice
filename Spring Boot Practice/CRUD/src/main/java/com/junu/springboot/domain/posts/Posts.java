@@ -48,4 +48,9 @@ public class Posts {
      * --> 생성자를 통해 최종값을 채운 후 DB에 삽입하는 것이 기본적이며,
      *     변경이 필요한 경우에는 해당 이벤트에 맞는 메소드를 호출하여 변경
      * */
+
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
 }

@@ -98,6 +98,9 @@
     - __`jsonPath("$.",is(비교대상))`__ : JSON의 응답값을 필드별로 검증하며 $를 기준으로 필드명 암시  
 
 ### 2. CRUD 게시판 만들기    
+#### JPA 환경 설정   
+- JPA 및 ORM의 개념과 이것이 필요한 이유는 [여기](https://junu0516.tistory.com/85)를 참고하자   
+- [build.gradle](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/build.gradle)에서 dependency로 Spring Data JPA 추상화 라이브러리(spring-boot-starter-data-jpa)와, Hibernate 관련 의존성을 우선 등록할 것
 - [PostsRepositoryTest.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/test/java/com/junu/springboot/domain/posts/PostsRepositoryTest.java)에서 JUnit 테스트 코드 오류 원인 찾아야 함(2021.1.13)   
 - [PostsRepository.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/domain/posts/PostsRepository.java) : JpaRepository 인터페이스 생성
 - [Posts.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/domain/posts/Posts.java) : Entity 클래스
