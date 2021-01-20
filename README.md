@@ -27,14 +27,15 @@
 * 서블릿 컨테이너(서블릿 객체의 생명주기를 관리)와 웹서버가 요청을 처리하는 과정은 [여기](https://junu0516.tistory.com/65)를 참고하자
 
 ### 3. JSP 활용해서 화면 구현과 비즈니스 로직을 분리하기
-* __JSP파일을 만들면 html코드 내에 자바 코드를 사용할 수 있기 때문에, 서블릿에서 html을 구현했던 것보다 덜 복잡하다는 이점이 있음__  
-* __따라서 서블릿에서는 비즈니스 로직에 집중하고, 응답화면의 구현은 JSP에서 작성하도록 하여 보다 효율적으로 작업이 가능함__   
-* [01_sum.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/01_sum.jsp)에서 <% %> 내에 1~10까지 합을 구하는 자바 코드를 작성 후, 서블릿에서 결과값을 담은 total 변수를 jsp파일로 넘김   
-* [02_date.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/02_date.jsp)에서는 Date객체를 원하는 형식으로 변형한 today 문자열을 jsp 파일로 넘김
-* [03.menu.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/03_menu.jsp)에서는 선택한 옵션의 value를 전송(request)하여, [MenuOrderServlet.java](https://github.com/junu0516/java-practice/blob/main/jspProject/src/com/kh/controller/MenuOrderServlet.java)에서 선택한 옵션 기반으로 결과값을 도출하여 이를 다시 jsp로 위임함   
-* 위임받은 결과값은 [04.menuResult.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/04_menuResult.jsp)에서 jsp 파일로 넘김   
-* 요청(request)를 위임할 때 서블릿 파일에서 사용하는 객체가 __RequestDispatcher__ 임. HttpServletRequest 객체의 .getRequestDispatcher(); 메소드의 매개변수로 위임받을 jsp문서의 경로를 입력한 후, __.forward()__ 메소드의 매개변수로 HttpServletRequest, HttpServletResponse 객체를 담아 보내주면 됨   
-* 따라서 이러한 방식으로 비즈니스 로직과 화면 구현을 각기 나눠서 처리할 수 있음   
+- __JSP파일을 만들면 html코드 내에 자바 코드를 사용할 수 있기 때문에, 서블릿에서 html을 구현했던 것보다 덜 복잡하다는 이점이 있음__  
+- __따라서 서블릿에서는 비즈니스 로직에 집중하고, 응답화면의 구현은 JSP에서 작성하도록 하여 보다 효율적으로 작업이 가능함__   
+- [01_sum.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/01_sum.jsp), [02_date.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/02_date.jsp) 
+- [03.menu.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/03_menu.jsp)에서는 선택한 옵션의 value를 전송(request)하여, [MenuOrderServlet.java](https://github.com/junu0516/java-practice/blob/main/jspProject/src/com/kh/controller/MenuOrderServlet.java)에서 선택한 옵션 기반으로 결과값을 도출하여 이를 다시 jsp로 위임함   
+- 위임받은 결과값은 [04.menuResult.jsp](https://github.com/junu0516/java-practice/blob/main/jspProject/WebContent/views/04_menuResult.jsp)에서 jsp 파일로 넘김   
+- 요청(request)를 위임할 때 서블릿 파일에서 사용하는 객체가 __`RequestDispatcher`__ 임
+    - HttpServletRequest 객체의 .getRequestDispatcher(); 메소드의 매개변수로 위임받을 jsp문서의 경로를 입력한 후,
+    -  __`.forward()`__ 메소드의 매개변수로 HttpServletRequest, HttpServletResponse 객체를 담아 보내주면 됨   
+    - 따라서 이러한 방식으로 비즈니스 로직과 화면 구현을 각기 나눠서 처리할 수 있음   
 
 ### 4. 자바 서블릿으로 쿠키, 세션 활용하기   
 - 기존 요청의 정보를 지속적으로 유지해야할 필요가 있을때 http의 무상태성과 비연결 지향을 극복하기 위한 것
@@ -80,6 +81,21 @@
     - __`Collections.singletonMap`__(변수명, 매핑시킬 변수) : 특정 값만 조회하는 쿼리문의 경우(ex. delete/update~ where 변수 = '';)에는 __`singletonMap`__을 통해 값을 하나만 넣어서 쓰는 것이 경제적
 - [RoleDaoSqls](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/dao/RoleDaoSqls.java) : 쿼리문을 static final 상수로 선언해서 따로 저장해두면 편함
     - 기존 JDBC에서는 ?로 매핑했지만, 이렇게 하면 ?가 많아질수록 복잡해지기 때문에 :roleId와 같이 이름으로 매핑
+
+###4. Spring MVC 사용하기
+- [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/pom.xml) : spring-context, spring-webmvc dependency, Servlet, JSP, JSTL 종속성  추가    
+    - 이후, 반드시 프로젝트의 properties에서 메이븐 기반으로 넣어준 dependency를 deploy해야 함
+- [WebMvcContextConfiguration.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/java/com/junu/webmvc/config/WebMvcContextConfiguration.java) : Dispatcher Servlet 클래스로 WebMvcConfiguration 클래스를 상속받음
+    - @EnableWebMvc로 기본적 설정은 자동으로 할 수 있지만, 이외의 설정이 필요할 경우에는 필요한 메소드를 오버라이딩 해야 함
+    - __`addResourceHandlers`__ : 요청이 들어왔을 때, 특정 url 요청에 대해서 알맞은 디렉토리에서 찾도록 설정(그렇지 않을 경우에는 모든 요청을 매핑으로 찾으려 들기 때문에 오류가 발생할 수 있음)    
+    - __`configureDefaultServletHandling`__ : DefaultServletHandler를 사용하도록 하는 메소드로 __`configurer.enable()`__ 메소드 사용시, 매핑정보가 없는 url 요청에 대해 이를 DefaultServletHandler가 처리하도록 함
+        - (WAS의 DefaultServlet으로 요청을 넘겨, 해당 서블릿의 static 자원을 읽어들이는 것)
+    - __`addViewControllers`__ : 특정 url에 대한 처리를 별도의 컨트롤러 클래스 작성 없이 매핑 가능하도록 하는 메소드
+        - registry.addViewController("/").setViewName("main"); : /로 들어온 url 요청에 대해 main이라는 view name을 찾아 보여주겠다는 것
+    - __`InternalResourceViewResolver`__ : @Bean 객체를 주입한 것으로, 위의 view name만 가지고 당연히 jsp 파일을 찾을 수 없기 때문에, 여기서 구체적으로 어떤 정보&경로를 가진 파일인지 찾는 것
+        - __`resolver.setPrefix`__(경로), __`resolver.setSuffix`__(파일 확장자) 를 입력 하여 view name과 결합
+- [web.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/webapp/WEB-INF/web.xml) : Dispatcher 서블릿이 FrontController로 기능하도록 서블릿 매핑
+
     
 * * *   
 
