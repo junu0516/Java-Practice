@@ -1,0 +1,27 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  
+  <!-- WebMvcConfiguration.java 서블릿을 FrontController로 설정하기 -->
+  <!-- 아래 설정을 입력해야 스프링에서 제공하는 DispatcherServlet이 FrontController로 기능하게 할 수 있음 -->
+  <servlet>
+  	<servlet-name>mvc</servlet-name> <!-- 매핑시킬 서블릿 이름 -->
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> <!-- 서블릿의 클래스 정보 (어떤 클래스인지)-->
+  	<init-param> <!-- contextClass 등룍 -->
+      <param-name>contextClass</param-name>
+      <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value> <!-- 쉽게 말해 왼쪽에 있는 클래스 import 하겠다는 것 ... -->
+    </init-param>
+  	<init-param><!-- 설정 정보 읽어들이기 위한 클래스 등록-->
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>com.junu.webmvc.config.WebMvcContextConfiguration</param-value> <!-- 해당 경로에 있는 클래스에 작성한 정보를 읽어들임(import 하겠다는 것) -->
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>mvc</servlet-name> <!-- 모든 요청에 대해 mvc라는 이름의 서블릿에서 요청을 받도록 함 -->
+  	<url-pattern>/</url-pattern> <!-- /로 할 경우 모든 요청을 받음 -->
+  </servlet-mapping>
+</web-app>
