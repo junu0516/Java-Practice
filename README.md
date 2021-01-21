@@ -54,6 +54,7 @@
 
 # 💻 스프링 연습한 코드 저장
 ### 1. DI, IoC
+- 스프링 DI와 IoC의 원리에 대해서는 [여기](https://junu0516.tistory.com/87?category=941266)를 참고하자
 - Java Config를 활용한 설정을 위한 어노테이션
     - [_@Configuration_](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/diexam/src/main/java/com/junu/spring/diexam/ApplicationConfig.java) : 스프링 설정 클래스 선언
     - [_@Bean_](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/diexam/src/main/java/com/junu/spring/diexam/ApplicationConfig.java) : bean을 정의
