@@ -47,7 +47,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
 	public void addViewControllers(ViewControllerRegistry registry) {
 		// TODO Auto-generated method stub
 		System.out.println("addViewControllers 호출");
-		registry.addViewController("/").setViewName("main"); // /로 들어온 요청에 대해 main이라는 view name을 찾아 보여줌
+		registry.addViewController("/").setViewName("main"); // /로 들어온 요청에 대해 main이라는 view name을 찾아 보여줌(메인 페이지를 디폴트로 두는 것으로 이해하자)
 	}
 	
 	/*
