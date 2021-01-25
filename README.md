@@ -97,6 +97,9 @@
         - __`resolver.setPrefix`__(경로), __`resolver.setSuffix`__(파일 확장자) 를 입력 하여 view name과 결합
 - [web.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/webapp/WEB-INF/web.xml) : Dispatcher 서블릿이 FrontController로 기능하도록 서블릿 매핑
 
+### 5. 실습 : 방명록 사이트 만들어보기
+- 라이브러리 추가, 기타 설정 : [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/pom.xml), [org.eclipse.wst.common.project.facet.core.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/.settings/org.eclipse.wst.common.project.facet.core.xml)
+
     
 * * *   
 

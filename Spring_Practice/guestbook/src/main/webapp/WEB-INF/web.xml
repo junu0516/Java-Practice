@@ -1,7 +1,53 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+  <display-name>Spring JavaConfig Sample</display-name>
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext <!-- 컨테이너 구현을 위한 클래스 타입을 명시 -->
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>com.junu.spring.guestbook.config.ApplicationConfig <!-- 컨텍스트 로딩시 ApplicationConfig의 설정을 참고 -->
+		</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener <!-- 컨텍스트 로딩 이벤트가 일어날 때 왼쪽에 명시한 클래스 실행하라는 것 -->
+		</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>mvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet <!-- DispatcherServlet을 프론트 컨트롤러로 등록 -->
+		</servlet-class>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext <!-- 프론트 컨트롤러 사용시 해당 클래스로 컨테이너 구현 -->
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>com.junu.spring.guestbook.config.WebMvcContextConfiguration <!-- 왼쪽의 설정을 참고하라는 것  -->
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>encodingFilter</filter-name> <!-- 필터는 요청이 들어오기 전, 응답이 나가기 전에 수행됨 -->
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>  <!-- UTF-8 인코딩 처리 -->
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern> <!-- 명시한 필터를 어느 범위까지 적용할 것인지를 설정 -->
+	</filter-mapping>
 </web-app>
