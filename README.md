@@ -104,12 +104,17 @@
 
 - [web.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/webapp/WEB-INF/web.xml) : Dispatcher 서블릿이 FrontController로 기능하도록 서블릿 매핑
 
-### 5. 실습 : 방명록 사이트 만들어보기
+### 5. 실습 : MVC2 모델을 적용한 방명록 사이트 만들어보기
 - 라이브러리 추가, 기타 설정 : [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/pom.xml), [org.eclipse.wst.common.project.facet.core.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/.settings/org.eclipse.wst.common.project.facet.core.xml)
 - Config 클래스 생성 : [DBConfig.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/config/DBConfig.java), [ApplicationConfig.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/config/ApplicationConfig.java)   
 - Dispatcher Servlet 클래스 생성 : [WebMvcContextConfiguration.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/config/WebMvcContextConfiguration.java)
 - 초기 서블릿 매핑을 위한 설정 : [web.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/webapp/WEB-INF/web.xml)
-    
+
+- Repository Layer 완성 : DTO, DAO 클래스 생성 및 DB 테이블 생성
+    - DTO : [Guestbook.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/dto/Guestbook.java), [Log.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/dto/Log.java)   
+    - DAO : [GuestbookDaoSqls.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/dao/GuestbookDaoSqls.java), [GuestbookDao.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/dao/GuestbookDao.java), [LogDao.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/dao/LogDao.java)   
+    - 테이블 생성 : [ddl 쿼리문](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/sql.txt)
+
 * * *   
 
 # 💻 스프링부트 연습한 코드 저장
