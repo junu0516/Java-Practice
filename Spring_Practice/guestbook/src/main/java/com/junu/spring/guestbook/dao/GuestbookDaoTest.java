@@ -16,8 +16,6 @@ public class GuestbookDaoTest {
 		GuestbookDao guestbookDao = ac.getBean(GuestbookDao.class);
 		
 		Guestbook guestbook = new Guestbook();
-		guestbook.setName("씨발");
-		guestbook.setContent("좆같네 영상");
 		guestbook.setRegdate(new Date());
 		Long id = guestbookDao.insert(guestbook);
 		System.out.println("id : "+id);
