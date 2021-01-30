@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages= {"com.junu.spring.gusetbook.controller"})
+@ComponentScan(basePackages= {"com.junu.spring.guestbook.controller"})
 public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
 
 	@Override

@@ -95,6 +95,7 @@
     	<version>${jackson2.version}</version>
     </dependency>
   </dependencies>
+  
   <build>
     <finalName>guestbook</finalName>
     <plugins>

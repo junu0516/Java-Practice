@@ -23,7 +23,6 @@ public class GuestbookController {
 	
 	@GetMapping(path="/list")
 	public String list(@RequestParam(name="start", required=false, defaultValue="0") int start, ModelMap model) {
-		
 		//start로 시작하는 방명록 목록 구하기
 		List<Guestbook> list = guestbookService.getGuestboks(start);
 		

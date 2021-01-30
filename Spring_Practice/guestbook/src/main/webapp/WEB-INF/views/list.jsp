@@ -8,7 +8,9 @@
 <title>방명록 리스트</title>
 </head>
 <body>
-	
+	<%
+		System.out.println("list.jsp here");
+	%>
 	<c:forEach items="${list}" var="guestbook">
 	
 		${guestbook.id }<br>
