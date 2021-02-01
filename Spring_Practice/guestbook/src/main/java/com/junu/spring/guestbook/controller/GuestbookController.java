@@ -45,7 +45,7 @@ public class GuestbookController {
 		model.addAttribute("count",count);
 		model.addAttribute("pageStartList", pageStartList);
 		
-		return "list";
+		return "list"; //서비스 메소드들은 로직을 반영할 view의 name을 포함한 String을 리턴함
 	}
 	
 	@PostMapping(path="/write")
@@ -54,7 +54,7 @@ public class GuestbookController {
 		System.out.println("clinetIp : "+clientIp);
 		guestbookService.addGuestbook(guestbook, clientIp);
 		
-		return "redirect:list";
+		return "redirect:list"; //데이터 리소스의 변경을 수반할 경우에는 redirect가 적합... 여기서는 리턴할 문자열에 redirect:를 앞에 붙여주면 됨(response.sendRedirect())
 	}
 	
 }

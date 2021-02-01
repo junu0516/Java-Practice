@@ -21,7 +21,6 @@ public class GuestbookServiceimpl implements GuestbookService {
 	
 	@Autowired
 	LogDao logDao;
-
 	
 	//인터페이스 추상메소드 구현
 	@Override
