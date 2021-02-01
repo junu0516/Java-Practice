@@ -102,7 +102,14 @@
     - __`InternalResourceViewResolver`__ : @Bean 객체를 주입한 것으로, 위의 view name만 가지고 당연히 jsp 파일을 찾을 수 없기 때문에, 여기서 구체적으로 어떤 정보&경로를 가진 파일인지 찾는 것
         - __`resolver.setPrefix`__(경로), __`resolver.setSuffix`__(파일 확장자) 를 입력 하여 view name과 결합   
 
-- [web.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/webapp/WEB-INF/web.xml) : Dispatcher 서블릿이 FrontController로 기능하도록 서블릿 매핑
+- [web.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/webapp/WEB-INF/web.xml) : Dispatcher 서블릿이 FrontController로 기능하도록 서블릿 매핑   
+   
+- WEB API 사용을 위한 컨트롤러 설정   
+    - [PlusApiController](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/java/com/junu/webmvc/controller/PlusApiController.java) : API 사용을 위한 컨트롤러 클래스 생성
+        -  __`@ResponseBody`__ 어노테이션을 명시할 경우, 컨트롤러 메소드는 뷰 이름에 해당하는 문자열이 아닌 객체를 반환할 수 있음
+        -  다시 말해 리턴할 객체를 출력하라고 하는 것을 의미
+    - [PlusResult.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/java/com/junu/webmvc/dto/PlusResult.java) : dto 클래스
+    - [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/pom.xml)에 반드시 객체<->JSON 간 변환이 가능하도록 라이브러리를 추가 : MessageConverter가 존재해야 DispatcherServlet이 제대로 변환할 수 있기 때문
 
 ### 5. 실습 : MVC2 모델을 적용한 방명록 사이트 만들어보기
 - 라이브러리 추가, 기타 설정 : [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/pom.xml), [org.eclipse.wst.common.project.facet.core.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/.settings/org.eclipse.wst.common.project.facet.core.xml)
