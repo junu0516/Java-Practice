@@ -1,12 +1,12 @@
 ```java
 자바 연습한 코드 저장 : 
-- 📋 jdbc , jsp : Ctrl+F+JDBC, JSP 연습한 코드 저장
+- 📋 [JDBC 프로그래밍 연습 코드](#1. JDBC-활용하여-자바-파일과-db-연동하기)
 - 📋 spring : Ctrl+F+스프링 연습한 코드 저장
 - 📋 spring-boot : Ctrl+F+스프링부트 연습한 코드 저장
 ```   
 * * *
 # 💻 JDBC, JSP 연습한 코드 저장
-### 1. JDBC 활용하여 자바 파일과 db 연동하기  
+### 1. JDBC 활용하여 자바 파일과 db 연동하기
 *  JDBC의 동작과 사용하는 객체의 용도는 [여기](https://junu0516.tistory.com/45?category=926619)를 보도록 하자   
 * __단순 statement 활용__ : [코드 보기](https://github.com/junu0516/java-practice/blob/main/java%26sql%20%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0/01_Statement/src/com/kh/member/model/dao/MemberDAO.java)   
 (쿼리에 인자를 부여하지 않기 때문에 단일로 사용할 경우 더 빠르지만, 반복적인 사용시 매번 컴파일 해야 함)   
