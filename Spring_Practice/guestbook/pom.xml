@@ -82,7 +82,7 @@
     	<version>2.1.1</version>
     </dependency>
     
-    <!-- Jackson Module -->
+    <!-- Jackson Module --> <!-- RestController 사용을 위한 것 -->
     <dependency>
     	<groupId>com.fasterxml.jackson.core</groupId>
     	<artifactId>jackson-databind</artifactId>
