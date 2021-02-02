@@ -121,6 +121,19 @@
     - DAO : [GuestbookDaoSqls.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/dao/GuestbookDaoSqls.java), [GuestbookDao.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/dao/GuestbookDao.java), [LogDao.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/dao/LogDao.java)   
     - 테이블 생성 : [ddl 쿼리문](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/sql.txt)
 
+### 6. @RestController을 통해 Web API 작성해보기
+- REST API에 대한 설명은 [여기](https://junu0516.tistory.com/94?category=933252)의 포스팅을 참고하도록 하자
+- [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/pom.xml) : com.fasterxml.jackson.core 라이브러리를 설치해야 자바 객체<->JSON 간 변환이 가능해짐
+-  [GuestbookApiController](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/controller/GuestbookApiController.java) : 클라이언트 요청시 JSON 데이터를 보내기 위한 컨트롤러 클래스
+    - __`@RestController`__ 어노테이션을 명시
+    - __`@RequestMapping`__ 어노테이션의 path값을 명시했기 때문에, __`@GetMapping`__ 과 __`@PostMapping`__ 메소드 구현시 따로 path를 입력해줄 필요 없음
+
+- __`@GetMapping`__ : @RequestMapping에서 명시해준 /guestbooks로 요청이 들어오면, content-type이 application/json인 경우 명시된 메소드를  호출
+    - 내부적으로 MessageConverter을 사용해서, 해당 메소드에서 반환하는 Map 타입의 객체가 JSON으로 변환되어 클라이언트에게 전송되는 것
+
+- __`@PostMapping`__ : 마찬가지로 POST 요청이 들어올 경우에는 명시된 메소드를 호출하며, 여기서는 Guestbook 타입 객체를 JSON으로 변환시켜 클라이언트에게 전송
+    - 단, Guestbook 타입 객체 반환시, 클라이언트의 ip 주소를 같이 받아줌
+
 * * *   
 
 # 스프링부트 연습한 코드 저장
