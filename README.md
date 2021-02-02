@@ -1,14 +1,10 @@
-[JDBC 프로그래밍 연습 코드](#1.-jdbc-활용하여-자바-파일과-db-연동하기)
-[스프링 연습 코드](#스프링-연습한-코드-저장)
-
-```java
-자바 연습한 코드 저장 : 
-- 📋 [JDBC 프로그래밍 연습 코드](#1. JDBC-활용하여-자바-파일과-db-연동하기)
-- 📋 spring : Ctrl+F+스프링 연습한 코드 저장
-- 📋 spring-boot : Ctrl+F+스프링부트 연습한 코드 저장
-```   
+# 목차   
+- [JDBC 연습 코드](#jdbc,-jsp-연습한-코드-저장)   
+- [스프링 연습 코드](#스프링-연습한-코드-저장)   
+- [스프링부트 연습 코드](#스프링부트-연습한-코드-저장)
+  
 * * *
-# 💻 JDBC, JSP 연습한 코드 저장
+# JDBC, JSP 연습한 코드 저장
 ### 1. JDBC 활용하여 자바 파일과 db 연동하기
 *  JDBC의 동작과 사용하는 객체의 용도는 [여기](https://junu0516.tistory.com/45?category=926619)를 보도록 하자   
 * __단순 statement 활용__ : [코드 보기](https://github.com/junu0516/java-practice/blob/main/java%26sql%20%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0/01_Statement/src/com/kh/member/model/dao/MemberDAO.java)   
@@ -127,7 +123,7 @@
 
 * * *   
 
-# 💻 스프링부트 연습한 코드 저장
+# 스프링부트 연습한 코드 저장
 ### 1. 스프링부트 환경 설정 및 JUnit테스트 코드 작성   
 - [build.gradle](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/build.gradle)에서 Gradle 프로젝트를 스프링 부트 프로젝트로 환경 설정 / 롬복 설치
 - [Application.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/Application.java) : 프로젝트의 Main 클래스 기능 수행   
