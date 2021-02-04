@@ -15,12 +15,22 @@
   </properties>
   
   <dependencies>
+  
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
+    
+    <!-- TODO: <scope>test</scope>의 명시를 없앴더니 모히또가 정상적으로 import 되었음 -->
+    <!-- 왜 그런지 모르겠지만, 메이븐을 통한 환경설정시 <scope> 태그가 의미하는 바가 무엇인지 생각해볼 것 -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>1.9.5</version>
+    </dependency>  
+     
     <!-- Spring -->
     <dependency>
     	<groupId>org.springframework</groupId>
@@ -31,6 +41,14 @@
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-webmvc</artifactId>
+    	<version>${spring.version}</version>
+    </dependency>
+    
+    <!-- unit-test를 위한 dependency 반드시 설정해야 함 -->
+    <!-- 위에서 junit 설치했다고 끝이 아님 -->
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-test</artifactId>
     	<version>${spring.version}</version>
     </dependency>
     
@@ -102,10 +120,11 @@
     	<plugin>
     		<groupId>org.apache.maven.plugins</groupId>
     		<artifactId>maven-compiler-plugin</artifactId>
-    		<version>3.6.1</version>
+    		<version>3.7.0</version>
     		<configuration>
     			<source>1.8</source>
     			<target>1.8</target>
+    			<encoding>utf-8</encoding>
     		</configuration>
     	</plugin>
     </plugins>

@@ -24,7 +24,7 @@ public class GuestbookController {
 	@GetMapping(path="/list")
 	public String list(@RequestParam(name="start", required=false, defaultValue="0") int start, ModelMap model) {
 		//start로 시작하는 방명록 목록 구하기
-		List<Guestbook> list = guestbookService.getGuestboks(start);
+		List<Guestbook> list = guestbookService.getGuestbooks(start);
 		
 		//전체 페이지수 구하기(페이징 처리)
 		//ex. url에 list?start=0, list?start=5와 같은 형식으로 걸리도록 하는 것

@@ -25,7 +25,7 @@ public class GuestbookServiceimpl implements GuestbookService {
 	//인터페이스 추상메소드 구현
 	@Override
 	@Transactional //@Transactional 처리해야 내부적으로 메소드 실행시 'readonly'의 상태로 실행함
-	public List<Guestbook> getGuestboks(Integer start) {
+	public List<Guestbook> getGuestbooks(Integer start) {
 		//게스트북 목록 받아오기
 		List<Guestbook> guestbooks = guestbookDao.selectAll(start, GuestbookService.LIMIT);
 		return guestbooks;

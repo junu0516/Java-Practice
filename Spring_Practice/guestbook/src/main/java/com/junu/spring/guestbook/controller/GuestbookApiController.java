@@ -33,7 +33,7 @@ public class GuestbookApiController {
 	public Map<String,Object> list(@RequestParam(name="start",required=false,defaultValue="0")int start){
 		/*MessageConverter을 내부적으로 사용해서 반환하게 될 Map타입 객체를 JSON으로 변환해서 전송을 하게 될 것*/
 		
-		List<Guestbook> list = guestbookService.getGuestboks(start); 
+		List<Guestbook> list = guestbookService.getGuestbooks(start); 
 		
 		int count = guestbookService.getCount();
 		int pageCount = count/GuestbookService.LIMIT;
