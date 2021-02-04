@@ -25,6 +25,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes = {WebMvcContextConfiguration.class, ApplicationConfig.class })
@@ -68,8 +72,6 @@ public class GuestbookApiControllerTest {
     	when(guestbookService.deleteGuestbook(id, "127.0.0.1")).thenReturn(1);
     	
     	RequestBuilder reqBuilder = MockMvcRequestBuilders.delete("/guestbooks/"+id).contentType(MediaType.APPLICATION_JSON);
-        mockMvc.perform(reqBuilder).andExpect(status().isOk()).andDo(print());
-
-        verify(guestbookService).deleteGuestbook(id, "127.0.0.1");    	
+    	
     }
 }
