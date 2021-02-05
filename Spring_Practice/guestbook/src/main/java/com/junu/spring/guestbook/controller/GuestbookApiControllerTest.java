@@ -25,6 +25,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+//static import로 org.mockito.Mockito.*를 명시해야 아래에서 when, vertify 메소드 사용이 가능
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -48,6 +49,7 @@ public class GuestbookApiControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(guestbookApiController).build();
     }
 
+    //방명록을 조회하는 web api를 테스트해보기
     @Test
     public void getGuestbooks() throws Exception {
         Guestbook guestbook1 = new Guestbook();
@@ -64,7 +66,8 @@ public class GuestbookApiControllerTest {
 
         verify(guestbookService).getGuestbooks(0);
     }
-
+    
+    //방명록을 삭제하는 web api를 테스트해보기
     @Test
     public void deleteGuestbook() throws Exception{
     	Long id = 1L;
@@ -72,6 +75,8 @@ public class GuestbookApiControllerTest {
     	when(guestbookService.deleteGuestbook(id, "127.0.0.1")).thenReturn(1);
     	
     	RequestBuilder reqBuilder = MockMvcRequestBuilders.delete("/guestbooks/"+id).contentType(MediaType.APPLICATION_JSON);
-    	
+        mockMvc.perform(reqBuilder).andExpect(status().isOk()).andDo(print());
+
+        verify(guestbookService).deleteGuestbook(id, "127.0.0.1");
     }
 }

@@ -23,6 +23,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.junu.webmvc.controller"}) //Component 스캔시 어떤 패키지를 스캔할 지를 반드시 명시, 여기서는 controller 패키지 탐색
 public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
+	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) { //요청이 들어왔을 때, 특정 url 요청에 대해서 알맞은 디렉토리에서 찾도록 설정(그렇지 않으면 죄다 매핑으로 찾으려 들기 때문에 오류 발생)
 		// TODO Auto-generated method stub
