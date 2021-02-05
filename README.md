@@ -102,8 +102,21 @@
         - __`resolver.setPrefix`__(경로), __`resolver.setSuffix`__(파일 확장자) 를 입력 하여 view name과 결합   
 
 - [web.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/webapp/WEB-INF/web.xml) : Dispatcher 서블릿이 FrontController로 기능하도록 서블릿 매핑   
-   
+
+- Dispatcher Servlet이 요청 처리를 위임할 컨트롤러 클래스 생성
+    - @Controller 어노테이션을 명시하여 해당 클래스가 컨트롤러 클래스임을 나타내야 함
+    - [plusForm.jsp](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/webapp/WEB-INF/views/plusForm.jsp) :  덧셈 연산을 수행할 두 숫자를 입력하여 POST 방식(/plus)으로 요청을 보내는 view
+    - [plusResult.jsp](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/webapp/WEB-INF/views/plusResult.jsp) : 요청 처리 후, 연산 결과를 보여줄 view
+
+    - [PlusController.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/java/com/junu/webmvc/controller/PlusController.java) : Dispatcher Servlet으로부터 요청 처리를 위임받은 컨트롤러 클래스
+        - __`@GetMapping`__ , __`@PostMapping`__ : 각각 GET/POSt방식으로 들어온 요청을 처리할 것임을 의미
+        - plusForm() 메소드는 /plusForm url을 통해 들어온 요청을 처리하며, 처리 결과로 plusForm.jsp 파일의 이름을 리턴(view의 이름을 리턴하는 것)
+        - plus() 메소드는 /plus url을 통해 들어온 요청을 처리하며, ModelMap 객체를 통해 입력받은 변수와, 연산 처리 결과를 자동으로 DTO 클래스에 매핑시킨 후 위와 동일하게 plusResult라는 view name을 리턴
+
+    - [PlusResult.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/java/com/junu/webmvc/dto/PlusResult.java) : DTO 클래스
+
 - WEB API 사용을 위한 컨트롤러 설정   
+    - @Controller 어노테이션과 @ResponseBody 어노테이션을 같이 사용하거나, 최신 버전일 경우에는 @RestController 어노테이션 하나만 명시
     - [PlusApiController](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/java/com/junu/webmvc/controller/PlusApiController.java) : API 사용을 위한 컨트롤러 클래스 생성
         -  __`@ResponseBody`__ 어노테이션을 명시할 경우, 컨트롤러 메소드는 뷰 이름에 해당하는 문자열이 아닌 객체를 반환할 수 있음
         -  다시 말해 리턴할 객체를 출력하라고 하는 것을 의미
