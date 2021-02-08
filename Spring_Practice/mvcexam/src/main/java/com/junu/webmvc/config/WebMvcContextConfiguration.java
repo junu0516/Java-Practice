@@ -35,7 +35,6 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
 	
 	@Override //default servlet handler 사용하도록 하는 메소드
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-		// TODO Auto-generated method stub
 		configurer.enable(); //enable() 메소드를 통해 매핑정보가 없는 url 요청은 서블릿에 대해 DefaultServletHandler가 처리하게
 		/*
 		 * 즉, WAS의 DefaultServlet으로 넘기면,

@@ -36,11 +36,4 @@ public class DBConfig implements TransactionManagementConfigurer {
     public PlatformTransactionManager annotationDrivenTransactionManager() {
 		return transactionManger();
 	}
-    
-  
-    
-    
-    
-	
-
 }
