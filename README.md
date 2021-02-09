@@ -50,8 +50,11 @@
     - 이유는 [여기](https://junu0516.tistory.com/76)에 정리해두었음   
 - 댓글 작성 및 조회시 [Ajax 비동기 통신 방식](https://junu0516.tistory.com/78)을 활용  
 ([맨 위로](#목차))
+
 * * *   
+
 # MyBatis 연습한 코드 저장
+([맨 위로](#목차))
 ```
 - XML을 통해 Mapper 설정 파일을 사용함으로써 CRUD를 좀 더 편리하게 할 수 있음    
 - mybatis-config.xml에서 DB 연결 설정 및 SQL 구문의 경로를 설정   
@@ -60,12 +63,12 @@
     
 ### 1. resources 폴더에 xml 파일 추가
 - [mybatis-config.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mybatis-config.xml) : mybatis 라이브러리 적용 후 기본 설정 파일로 기능   
-- <configuration> 태그 내부에 설정할 내용들을 기술하는 것   
+- configuration 태그 내부에 설정할 내용들을 기술하는 것   
    
-- <typeAliases> : 객체 매핑시 사용할 자료형들의 별칭을 선언   
-    - <typeAlias> 태그 내부에 type 속성으로 클래스 정보를, alias 속성으로 사용할 별칭을 입력   
+- typeAliases : 객체 매핑시 사용할 자료형들의 별칭을 선언   
+    - typeAlias 태그 내부에 type 속성으로 클래스 정보를, alias 속성으로 사용할 별칭을 입력   
    
-- <environments> : MyBatis와 연동시킬 DB 정보를 등록   
+- environments : MyBatis와 연동시킬 DB 정보를 등록   
 - 작성 예시   
 ```
 <environments default="development">
@@ -80,7 +83,11 @@
     </environment>
 </environments>
 ```
-
+- dataSource : type 속성을 POOLED로 둘 경우 커넥션 객체를 pool 영역에 저장 후 이를 재사용하는 것을 의미
+    - 한 번 만들어두고 재사용하기 때문에 매번 커넥션 객체를 생성할 필요 없음    
+- property : 외부 파일 내용을 읽어들일 때 사용
+    - 여기서는 JDBCTemplate 클래스 작성시 사용했는 드라이버 관련 정보를 입력
+- mappers : 사용하고자 하는 쿼리문들이 정의될 mapper xml 파일들을 등록
 * * *
 
 # 스프링 연습한 코드 저장
