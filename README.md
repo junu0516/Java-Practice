@@ -52,6 +52,11 @@
  
 * * *   
 # MyBatis 연습한 코드 저장
+```
+- XML을 통해 Mapper 설정 파일을 사용함으로써 CRUD를 좀 더 편리하게 할 수 있음    
+- mybatis-config.xml에서 DB 연결 설정 및 SQL 구문의 경로를 설정   
+- mapper.xml에서 DB와의 연동이 필요한 패키지별로 쿼리문을 설정 및 매핑
+```
 
 * * *
 
