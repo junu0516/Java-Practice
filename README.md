@@ -58,7 +58,28 @@
 - mapper.xml에서 DB와의 연동이 필요한 패키지별로 쿼리문을 설정 및 매핑
 ```
     
-### 1. 
+### 1. resources 폴더에 xml 파일 추가
+- [mybatis-config.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mybatis-config.xml) : mybatis 라이브러리 적용 후 기본 설정 파일로 기능   
+- <configuration> 태그 내부에 설정할 내용들을 기술하는 것   
+   
+- <typeAliases> : 객체 매핑시 사용할 자료형들의 별칭을 선언   
+    - <typeAlias> 태그 내부에 type 속성으로 클래스 정보를, alias 속성으로 사용할 별칭을 입력   
+   
+- <environments> : MyBatis와 연동시킬 DB 정보를 등록   
+- 작성 예시   
+```
+<environments default="development">
+    <environment id="development">
+        <transactionManager type="JDBC" />
+        <dataSource type="POOLED">
+            <property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+            <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+            <property name="username" value="mybatis" />
+            <property name="password" value="mybatis" />
+        </dataSource>
+    </environment>
+</environments>
+```
 
 * * *
 
