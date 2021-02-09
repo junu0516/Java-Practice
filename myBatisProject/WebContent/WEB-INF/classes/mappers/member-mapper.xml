@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="memberMapper">
+	<!-- resultMap : 조회한 결과를 원하는 개체의 필드에 담아 반환하고자 할 때 사용 / 테이블 컬럼과 객체의 필드를 매핑시켜주는 것 -->
+	<resultMap type="Member" id="memberResultSet"><!-- type에 typeAlias로 설정했던 Member 타입을 명시해야, 매핑시킬 객체의 클래스 타입이 Member임을 인식하게 됨 / 그렇지 않은 경우에는 패키지명+클래스명 모두 명시 -->
+		<id property="userNo" column="USER_NO"/> <!-- 기본키 태그는 id로 입력 -->
+		<result property="userId" column="USER_ID"/>
+		<result property="userPwd" column="USER_PWD"/>
+		<result property="userName" column="USER_NAME"/>
+		<result property="email" column="EMAIL"/>
+		<result property="birthday" column="BIRTHDAY"/>
+		<result property="gender" column="GENDER"/>
+		<result property="phone" column="PHONE"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="modifyDate" column="MODIFY_DATE"/>
+		<result property="status" column="STATUS"/>
+	</resultMap>
+	<!-- 
+	<select id="loginMember"
+		parameterType="com.kh.myBatis.member.model.vo.Member"
+		resultType="com.kh.myBatis.member.model.vo.Member">
+		SELECT * FROM MEMBER
+		WHERE USER_ID = #{userId}
+		AND USER_PWD = #{userPwd}
+		AND STATUS= 'Y'
+	</select>
+	 -->
+	 <!-- select : CRUD 중 R을 위한 select 구문 작성시 사용하는 태그 -->
+	 <!-- id에는 Dao 클래스에 명시한 실제 VO(DTO) 객체명을 명시 -->
+	 <select id="loginMember"
+		parameterType="Member"
+		resultMap="memberResultSet"> <!-- 속성을 resultMap으로 해야 위의 resultMap으로 적용됨 / resultMap이 없을 경우에는 resultType 속성으로 명시 -->
+		SELECT * FROM MEMBER
+		WHERE USER_ID = #{userId}
+		AND USER_PWD = #{userPwd}
+		AND STATUS= 'Y'
+	</select>
+	
+	<insert id="insertMember"
+			parameterType="Member"><!-- resultType을 Integer로 명시하지 않아도 자동으로 int값을 리턴 -->
+		INSERT INTO MEMBER
+		VALUES(
+			SEQ_UNO.NEXTVAL,
+			#{userId},
+			#{userPwd},
+			#{userName},
+			#{email},
+			#{birthday},
+			#{gender},
+			#{phone},
+			#{address},
+			SYSDATE,
+			SYSDATE,
+			DEFAULT
+		)
+	</insert>
+	
+	<update id="updateMember"
+			parameterType="Member">
+		UPDATE MEMBER SET
+		EMAIL = #{email},
+		BIRTHDAY = #{birthday},
+		GENDER = #{gender},
+		PHONE = #{phone},
+		ADDRESS = #{address},
+		MODIFY_DATE = SYSDATE
+		WHERE USER_ID = #{userId}
+		AND STATUS='Y'
+	</update>
+	
+	<!-- 일단 회원탈퇴 처리는 테이블의 STATUS값을 N으로 수정해주는 것으로 처리 -->
+	<update id="deleteMember"
+			parameterType="Member">
+		UPDATE MEMBER SET
+		STATUS='N'
+		WHERE USER_ID = #{userId}		
+	</update>
+	
+</mapper>

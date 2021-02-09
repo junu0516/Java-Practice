@@ -8,6 +8,8 @@ import javax.servlet.*;
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	//Spring 기본 설정 파일 클래스를 지정
+	//해당 클래스가 web.xml의 기능을 대체하게 될 것 -> web.xml을 삭제해야 정상적으로 해당 클래스가 이니셜라이저로 기능하게 됨
+	
 	//ApplicationConfig.class를 직접 작성해야 함
 	@Override
 	protected Class<?>[] getRootConfigClasses() {

@@ -119,9 +119,11 @@
     - @Controller 어노테이션과 @ResponseBody 어노테이션을 같이 사용하거나, 최신 버전일 경우에는 @RestController 어노테이션 하나만 명시
     - [PlusApiController](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/java/com/junu/webmvc/controller/PlusApiController.java) : API 사용을 위한 컨트롤러 클래스 생성
         -  __`@ResponseBody`__ 어노테이션을 명시할 경우, 컨트롤러 메소드는 뷰 이름에 해당하는 문자열이 아닌 객체를 반환할 수 있음
-        -  다시 말해 리턴할 객체를 출력하라고 하는 것을 의미
+        -  다시 말해 리턴할 객체를 출력하라고 하는 것을 의미    
     - [PlusResult.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/java/com/junu/webmvc/dto/PlusResult.java) : dto 클래스
     - [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/pom.xml)에 반드시 객체<->JSON 간 변환이 가능하도록 라이브러리를 추가 : MessageConverter가 존재해야 DispatcherServlet이 제대로 변환할 수 있기 때문
+
+
 
 ### 5. 실습 : MVC2 모델을 적용한 방명록 사이트 만들어보기
 - 라이브러리 추가, 기타 설정 : [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/pom.xml), [org.eclipse.wst.common.project.facet.core.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/.settings/org.eclipse.wst.common.project.facet.core.xml)
@@ -147,7 +149,9 @@
     - 내부적으로 MessageConverter을 사용해서, 해당 메소드에서 반환하는 Map 타입의 객체가 JSON으로 변환되어 클라이언트에게 전송되는 것
 
 - __`@PostMapping`__ : 마찬가지로 POST 요청이 들어올 경우에는 명시된 메소드를 호출하며, 여기서는 Guestbook 타입 객체를 JSON으로 변환시켜 클라이언트에게 전송
-    - 단, Guestbook 타입 객체 반환시, 클라이언트의 ip 주소를 같이 받아줌
+    - 단, Guestbook 타입 객체 반환시, 클라이언트의 ip 주소를 같이 받아줌   
+   
+### 7. Swager을 사용하여 WEB-API 문서화해보기
 
 * * *   
 

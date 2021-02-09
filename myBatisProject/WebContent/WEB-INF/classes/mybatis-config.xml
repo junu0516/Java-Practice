@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<!-- myBatis 기본 설정 파일로 기능 / configuration 태그 내부에 세부 설정내용 기술 -->
+<configuration>
+	<settings><!-- value에 NULL -->
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	
+	<!-- typeAlias : myBatis에서 사용할 자료형의 별칭을 선언.. 여기서는 com.kh.myBatis.member.model.vo 패키지의 Member 클래스 타입을 Member이라는 별칭으로 설정한 것 -->
+	<typeAliases>
+		<typeAlias type="com.kh.myBatis.member.model.vo.Member" alias="Member"/>
+		<typeAlias type="com.kh.myBatis.board.model.vo.Board" alias="Board"/>
+		<typeAlias type="com.kh.myBatis.board.model.vo.SearchCondition" alias="SearchCondition"/>
+	</typeAliases>
+	
+	<!-- environments : myBatis에서 연동할 DB 정보를 등록 -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED"><!-- POOLED : 커넥션 객체를 만들어 pool 영역에 저장한 후, 이를 재사용하는 것 / 매번 커넥션 객체를 생성해야 할 필요가 없기 때문에 시간 단축 효과 -->
+				<!-- property : 외부 파일 내용을 불러서 읽어들임 -> JDBCTemplate 작성시 드라이버 연결을 여기서 해주는 것 -->
+				<property name="driver"
+					value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url"
+					value="jdbc:oracle:thin:@localhost:1521:xe" />
+				<property name="username" value="mybatis" />
+				<property name="password" value="mybatis" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- mappers : 사용하고자 하는 쿼리문이 정의된 mapper 파일을 등록 -->
+	<mappers>
+		<mapper resource="/mappers/member-mapper.xml" />
+		<mapper resource="/mappers/board-mapper.xml"/>
+	</mappers>
+</configuration>

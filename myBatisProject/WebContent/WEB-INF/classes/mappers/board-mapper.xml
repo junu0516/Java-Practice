@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="boardMapper">
+	<resultMap type="Board" id="boardResultMap">
+		<id property="boardNo" column="BOARD_NO"/>
+		<result property="boardTitle" column="BOARD_TITLE"/>
+		<result property="boardContent" column="BOARD_CONTENT"/>
+		<result property="boardWriter" column="USER_ID"/>
+		<result property="count" column="COUNT"/>
+		<result property="createDate" column="CREATE_DATE"/>
+	</resultMap>
+	
+	<!-- 페이징 처리를 위한 정보를 반영해서, 게시글 리스트를 불러오게 될 쿼리문 -->
+	<!-- dao에서 페이징 처리를 위해 RowBounds 클래스를 통해 정보를 넘겨줬기 때문에, 원하는 구간만큼만 데이터를 뽑아서 매핑시켜 전달해줌 -->
+	<select id="selectList"
+				resultMap="boardResultMap">
+		SELECT BOARD_NO, BOARD_TITLE, USER_ID, COUNT, CREATE_DATE
+		FROM BOARD B
+		JOIN MEMBER ON (BOARD_WRITER=USER_NO)
+		WHERE B.STATUS='Y'
+		ORDER BY BOARD_NO DESC
+	</select>
+	
+	<!-- 총 게시글의 개수를 불러오기 위한 쿼리문 -->
+	<select id="selectListCount"
+			resultType="_int">
+		SELECT COUNT(*)
+		FROM BOARD
+		WHERE STATUS='Y'	
+	</select>
+	
+	<!-- 검색한 키워드 기반으로 게시글의 개수 불러오기 -->
+	<!-- parameterType : 전달받은 키워드가 파라미터가 됨 -->
+	<select id="selectListCountCon"
+			 parameterType="searchCondition"
+			 resultType="_int">
+		SELECT COUNT(*)
+		FROM BOARD B
+		JOIN MEMBER ON (BOARD_WRITER = USER_NO)
+		WHERE B.STATUS='Y'
+		<!-- 3개의 조건문을 작성해서, 입력한 키워드(전달받은 파라미터) 조건에 맞는 쿼리문을 실행하게 되는 것 -->
+		<if test="writer != null"><!-- 아래 #{}에 전달받은 파라미터 입력 -->
+			AND USER_ID LIKE '%'||#{writer}||'%'
+		</if>
+		<if test="title != null">
+			AND BOARD_TITLE LIKE '%'||#{title}||'%'
+		</if>
+		<if test="content != null">
+			AND BOARD_CONTENT LIKE '%'||#{content}||'%'
+		</if>
+	</select>
+	
+	<!-- 검색한 키워드 기반으로 게시글 목록 불러오기 -->
+	<select id="selectListCon"
+			resultMap="boardResultMap">
+		SELECT BOARD_NO, BOARD_TITLE, USER_ID, COUNT, CREATE_DATE
+		FROM BOARD B
+		JOIN MEMBER ON (BOARD_WRITER=USER_NO)
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<choose>
+				<when test="writer != null">
+					AND USER_ID LIKE '%'||#{writer}||'%'
+				</when>
+				<when test="title != null">
+					AND BOARD_TITLE LIKE '%'||#{title}||'%'
+				</when>
+				<otherwise>
+					AND BOARD_CONTENT LIKE '%'||#{content}||'%'
+				</otherwise>
+			</choose>
+		</trim>
+		AND B.STATUS='Y'
+		ORDER BY BOARD_NO DESC
+	</select>
+		
+	<update id="updateCount"
+			parameterType="_int">
+		UPDATE BOARD
+		SET COUNT = COUNT+1
+		WHERE BOARD_NO = #{bno}
+	</update>
+	
+	<select id="selectBoard"
+			parameterType="_int"
+			resultMap="boardResultMap">
+		SELECT BOARD_NO, BOARD_TITLE, USER_ID, COUNT, CREATE_DATE, BOARD_CONTENT
+		FROM BOARD B
+		JOIN MEMBER ON (BOARD_WRITER=USER_NO)
+		WHERE B.STATUS='Y'
+		AND BOARD_NO = #{bno}
+	</select>
+	
+	<!-- 게시글 수정 -->
+	<update id="updateBoard"
+			parameterType="Board">
+		UPDATE BOARD SET
+		BOARD_TITLE = #{boardTitle},
+		BOARD_CONTENT = #{boardContent}
+		WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<update id="deleteBoard"
+			parameterType="Board">
+		UPDATE BOARD SET
+		STATUS = 'N'
+		WHERE BOARD_NO = #{boardNo}
+	</update>
+	
+</mapper>

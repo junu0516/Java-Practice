@@ -44,7 +44,7 @@ public class CalculatorApiController {
 		calculatorResult.setValue1(value1);
 		calculatorResult.setValue2(value2);
 		calculatorResult.setOperation(CalculatorResult.MINUS_OPERATION);
-		calculatorResult.setResult(calculatorService.plus(value1, value2));
+		calculatorResult.setResult(calculatorService.minus(value1, value2));
 		return calculatorResult;		
 	}
 	
