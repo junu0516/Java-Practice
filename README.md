@@ -49,7 +49,7 @@
     - 등록 후 리스트로 돌아갈 때 forward가 아닌 redirect가 적합   
     - 이유는 [여기](https://junu0516.tistory.com/76)에 정리해두었음   
 - 댓글 작성 및 조회시 [Ajax 비동기 통신 방식](https://junu0516.tistory.com/78)을 활용  
- 
+([맨 위로](#목차))
 * * *   
 # MyBatis 연습한 코드 저장
 ```
@@ -136,7 +136,6 @@
     - [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/pom.xml)에 반드시 객체<->JSON 간 변환이 가능하도록 라이브러리를 추가 : MessageConverter가 존재해야 DispatcherServlet이 제대로 변환할 수 있기 때문
 
 
-
 ### 5. 실습 : MVC2 모델을 적용한 방명록 사이트 만들어보기
 - 라이브러리 추가, 기타 설정 : [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/pom.xml), [org.eclipse.wst.common.project.facet.core.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/.settings/org.eclipse.wst.common.project.facet.core.xml)
 - Config 클래스 생성 : [DBConfig.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/config/DBConfig.java), [ApplicationConfig.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/config/ApplicationConfig.java)   
@@ -165,9 +164,11 @@
    
 ### 7. Swager을 사용하여 WEB-API 문서화해보기
 
+([맨 위로](#목차))
 * * *   
 
 # 스프링부트 연습한 코드 저장
+([맨 위로](#목차))
 ### 1. 스프링부트 환경 설정 및 JUnit테스트 코드 작성   
 - [build.gradle](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/build.gradle)에서 Gradle 프로젝트를 스프링 부트 프로젝트로 환경 설정 / 롬복 설치
 - [Application.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/Application.java) : 프로젝트의 Main 클래스 기능 수행   
@@ -193,7 +194,7 @@
 - [PostsService.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/service/posts/PostsService.java) : 트랜젝션, 도메인 기능 간의 순서 보장
 - [PostsSaveRequestDto.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/main/java/com/junu/springboot/web/dto/PostsSaveRequestDto.java) : Dto 클래스로 Request 데이터를 받는 역할 수행
 - Entity와 Dto는 서로 유사하지만, Entity는 비즈니스 로직을 처리하기 때문에 Request/Response 데이터를 주고 받으며 자주 변경이 필요하기 때문에 Dto 클래스로 활용하기 적합하지 못함... 그래서 Dto 클래스를 또하나 만드는 것
-
-
+   
+([맨 위로](#목차))
 
 
