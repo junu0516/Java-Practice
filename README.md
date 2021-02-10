@@ -246,6 +246,21 @@
     - 단, Guestbook 타입 객체 반환시, 클라이언트의 ip 주소를 같이 받아줌   
    
 ### 7. Swager을 사용하여 WEB-API 문서화해보기
+- [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/pom.xml) : 여기서는 web.xml을 사용하지 않기 위한 설정과, 스웨거와의 연동을 위한 종속성을 추가
+    - properties 태그 내에 web.xml을 사용하지 않도록 사전설정 추가   
+    - 초기화시 "web.xml is missing~"과 같은 예외가 발생하지 않도록 하기 위한 것   
+``` 
+<failOnMissingWebXml>false</failOnMissingWebXml>
+``` 
+
+- web.xml을 대체할 WebApplicatonInitializer를 구현한 클래스를 생성
+- 여기서는 이를 구현하고 있는 __`AbstractAnnotationConfigDispatcherServletInitializer`__ 클래스를 상속받은 [WebAppInitializer.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/config/WebAppInitializer.java) 클래스를 생성   
+    - web.xml에서 설정했던 컨텍스트 로딩시 참고할 설정 클래스의 지정, 리스너 클래스 실행, 프론트 컨트롤러로 DispatcherServlet 등록 등의 작업을 자바 클래스로 대체하는 것   
+    - __`AbstractAnnotationConfigDispatcherServletInitializer`__ 클래스를 상속받아 필요한 메소드를 오버라이딩하여 구현
+    - getRootConfigClasses : 스프링 기본 설정파일 클래스를 지정(사용할 Bean들을 설정하는 것) / [ApplicationConfig.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/config/ApplicationConfig.java)    
+    - getServletConfigClasses : 스프링 MVC 설정 파일 클래스를 지정 / [MvcConfig.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/config/MvcConfig.java)
+    - getServletMappings : DispatcherServlet이 동작할 매핑정보를 설정
+    - getServletFilters : 필터를 설정
 
 ([맨 위로](#목차))
 * * *   

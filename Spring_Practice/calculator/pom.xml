@@ -6,10 +6,11 @@
   <artifactId>calculator</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-	
+   
+  <!-- 이번에는 web.xml을 사용하지 않을 것이기 때문에 failOnMissingWebXml을 false로 설정함 -->	
   <properties>
 	<failOnMissingWebXml>false</failOnMissingWebXml>
-	<spring.version>5.2.3.RELEASE</spring.version>
+	<spring.version>5.2.3.RELEASE</spring.version> <!-- 스프링 버전은 5.2.3으로 사용 -->
   </properties>  
 	
   <dependencies>
