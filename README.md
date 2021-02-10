@@ -95,8 +95,8 @@
 - member-mapper.xml을 예시로 살펴보자   
 
 - __`resultMap`__ : type에 typeAlias로 설정한 객체 타입을 명시하며, id에는 쿼리문 실행 결과를 매핑시킬 아이디값을 입력
-   - 기본키에 해당하는 태그만 __`id`__로 받고, 나머지는 __`result`__ 태그로 받아줌   
-   - __`property`__ 속성에는 매핑시킬 객체 내부의 인스턴스 변수명을, __`column`__은 매핑시킬 테이블의 컬럼명을 명시
+   - 기본키에 해당하는 태그만 __`id`__ 로 받고, 나머지는 __`result`__ 태그로 받아줌   
+   - __`property`__ 속성에는 매핑시킬 객체 내부의 인스턴스 변수명을, __`column`__ 은 매핑시킬 테이블의 컬럼명을 명시
 ```
 <resultMap type="Member" id="memberResultSet">
     <id property="userNo" column="USER_NO"/>
@@ -115,9 +115,9 @@
 ```   
 
 - 쿼리문 입력시 select, insert, delete, update 네가지 태그를 통해 CRUD을 구현
-    - parameterType : 매핑시킬 객체타입을 속성값으로 명시
-    - id : 쿼리문의 실행 결과를 연동시킬 DAO 클래스의 메소드명에서 반환한 값을 명시
-    - 객체와 매핑시킬 때는 __`resultMap`__으로 속성을 명시해야 함 / 그렇지 않을 경우에는 __`resultType`__으로 명시 후, 속성값으로 클래스 정보를 명시   
+    - __`parameterType`__ : 매핑시킬 객체타입을 속성값으로 명시
+    - __`id`__ : 쿼리문의 실행 결과를 연동시킬 DAO 클래스의 메소드명에서 반환한 값을 명시
+    - 객체와 매핑시킬 때는 __`resultMap`__ 으로 속성을 명시해야 함 / 그렇지 않을 경우에는 __`resultType`__ 으로 명시 후, 속성값으로 클래스 정보를 명시   
 ```  
 <select id="loginMember"
           parameterType="Member"
