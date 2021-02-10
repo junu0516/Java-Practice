@@ -166,7 +166,7 @@
 
 - mySQL 드라이버 연동   
     - [DataSourceTest.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/main/DataSourceTest.java) : __`ApplicationContext`__ 인스턴스 생성시, AnnotationConfigApplicationContext의 매개변수로 ApplicationConfig.class만 명시해줘도 됨(DBConfig.class는 이미 주입시켰기 때문)
-    - __`getBean()`__을 통해 DataSource 객체를 받은 후, db에 연결 시도(기존 JDBC 템플릿에서의 드라이버 연결과 동일)
+    - __`getBean()`__ 을 통해 DataSource 객체를 받은 후, db에 연결 시도(기존 JDBC 템플릿에서의 드라이버 연결과 동일)
 
 ### 3. SELECT, UPDATE, DELETE 쿼리문 실행
 - [Role.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/dto/Role.java) : DTO 객체   
@@ -177,7 +177,7 @@
     - __`NamedParameterJdbcTemplate`__ : 바인딩시 문자열로 매핑시킴(결과값 담아주며 ?를 사용하지 않기 때문에 편리) / queryForObject, update, execute 메소드를 각각의 경우에 맞게 사용 
     - __`SqlParameterSource`__ : 매개변수로 받은 객체의 인스턴스 변수를 해당 클래스에서 보고 알아서 연동할 DB 테이블의 컬럼명과 매핑시킴 / 따라서 변수명 설정에 주의해야함(SQL : 대문자, Java : 소문자)
     - __`BeanPropertySqlParameterSource`__ : SqlParameterSource 클래스의 인스턴스로 생성된 것을 확인할 수 있음 / 빈 객체롤 Map 객체로 변환시키는 역할
-    - __`Collections.singletonMap`__(변수명, 매핑시킬 변수) : 특정 값만 조회하는 쿼리문의 경우(ex. delete/update~ where 변수 = '';)에는 __`singletonMap`__을 통해 값을 하나만 넣어서 쓰는 것이 경제적   
+    - __`Collections.singletonMap`__(변수명, 매핑시킬 변수) : 특정 값만 조회하는 쿼리문의 경우(ex. delete/update~ where 변수 = '';)에는 __`singletonMap`__ 을 통해 값을 하나만 넣어서 쓰는 것이 경제적   
 
 - [RoleDaoSqls](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/daoexam/src/main/java/com/junu/spring/daoexam/dao/RoleDaoSqls.java) : 쿼리문을 static final 상수로 선언해서 따로 저장해두면 편함
     - 기존 JDBC에서는 ?로 매핑했지만, 이렇게 하면 ?가 많아질수록 복잡해지기 때문에 :roleId와 같이 이름으로 매핑
@@ -261,7 +261,7 @@
 - [HelloControllerTest.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/CRUD/src/test/java/com/junu/springboot/HelloControllerTest.java)에서 [HelloController.java](https://github.com/junu0516/Java-Practice/blob/main/Spring%20Boot%20Practice/Practice1/src/main/java/com/junu/practice/springboot/web/HelloController.java)의 테스트 코드 수행
     - HelloController.java에서 클래스 선언 이전에 __`@RestController`__ 어노테이션을 통해 JSON을 반환하는 컨트롤러로 만들어줌
     - __`@GetMapping`__(매핑할 url)을 통해 HTTP의 요청을 받을 수 있는 API를 만들어줄 수 있음
-    - __`HelloControllerTest.java`__를 보면 @Test를 수행할 때, mvc.perform().andExpect() ....으로 테스트 코드를 작성하는데, 이는 mvc.perform()의 결과를 검증하는 것
+    - __`HelloControllerTest.java`__ 를 보면 @Test를 수행할 때, mvc.perform().andExpect() ....으로 테스트 코드를 작성하는데, 이는 mvc.perform()의 결과를 검증하는 것
     - __`status().isOk()`__ : HTTP Header의 Status 검증 / content().string(비교대상) : 응답 본문의 내용을 검증.. 여기서는 Controller이 "hello"를 제대로 리턴하는 지를 검증
     - __`jsonPath("$.",is(비교대상))`__ : JSON의 응답값을 필드별로 검증하며 $를 기준으로 필드명 암시  
 
