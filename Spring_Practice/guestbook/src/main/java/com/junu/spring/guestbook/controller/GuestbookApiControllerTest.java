@@ -32,7 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = {WebMvcContextConfiguration.class, ApplicationConfig.class })
+@ContextConfiguration(classes = {WebMvcContextConfiguration.class, ApplicationConfig.class }) //두 클래스간의 계층관계가 존재하지 않기 때문에  @ContextConfiguration으로 명시
 public class GuestbookApiControllerTest {
 	
 	@InjectMocks

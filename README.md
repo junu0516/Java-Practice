@@ -87,7 +87,62 @@
     - 한 번 만들어두고 재사용하기 때문에 매번 커넥션 객체를 생성할 필요 없음    
 - property : 외부 파일 내용을 읽어들일 때 사용
     - 여기서는 JDBCTemplate 클래스 작성시 사용했는 드라이버 관련 정보를 입력
-- mappers : 사용하고자 하는 쿼리문들이 정의될 mapper xml 파일들을 등록
+- mappers : 사용하고자 하는 쿼리문들이 정의될 mapper xml 파일들을 등록   
+   
+### 2. mapper 파일 구성
+- mybatis-config.xml에 등록한 mapper 파일을 동일하게 resources 폴더에 추가   
+- [member-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/member-mapper.xml), [board-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/board-mapper.xml) : mapper 파일 예시
+- member-mapper.xml을 예시로 살펴보자   
+
+- resultMap : type에 typeAlias로 설정한 객체 타입을 명시하며, id에는 쿼리문 실행 결과를 매핑시킬 아이디값을 입력
+   - 기본키에 해당하는 태그만 id로 받고, 나머지는 result 태그로 받아줌   
+   - property 속성에는 매핑시킬 객체 내부의 인스턴스 변수명을, column은 매핑시킬 테이블의 컬럼명을 명시
+```
+<resultMap type="Member" id="memberResultSet">
+    <id property="userNo" column="USER_NO"/>
+    <result property="userId" column="USER_ID"/>
+    <result property="userPwd" column="USER_PWD"/>
+    <result property="userName" column="USER_NAME"/>
+    <result property="email" column="EMAIL"/>
+    <result property="birthday" column="BIRTHDAY"/>
+    <result property="gender" column="GENDER"/>
+    <result property="phone" column="PHONE"/>
+    <result property="address" column="ADDRESS"/>
+    <result property="enrollDate" column="ENROLL_DATE"/>
+    <result property="modifyDate" column="MODIFY_DATE"/>
+    <result property="status" column="STATUS"/>
+</resultMap>   
+```   
+
+- 쿼리문 입력시 select, insert, delete, update 네가지 태그를 통해 CRUD을 구현
+    - parameterType : 매핑시킬 객체타입을 속성값으로 명시
+    - id : 쿼리문의 실행 결과를 연동시킬 DAO 클래스의 메소드명에서 반환한 값을 명시
+    - 객체와 매핑시킬 때는 resultMap으로 속성을 명시해야 함 / 그렇지 않을 경우에는 resultType으로 명시 후, 속성값으로 클래스 정보를 명시   
+```  
+<select id="loginMember"
+          parameterType="Member"
+          resultMap="memberResultSet">
+
+<!--쿼리문 입력 -->
+
+</select>   
+   
+<insert id="insertMember"
+          parameterType="Member"><!-- resultType을 Integer로 명시하지 않아도 자동으로 int값을 리턴 -->
+
+ <!--쿼리문 입력 -->
+	
+</insert>
+	
+<update id="updateMember"
+           parameterType="Member">
+
+<!-- 쿼리문 입력 -->
+
+</update>
+	
+```  
+([맨 위로](#목차))
 * * *
 
 # 스프링 연습한 코드 저장
