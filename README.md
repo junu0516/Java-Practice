@@ -63,12 +63,12 @@
     
 ### 1. resources 폴더에 xml 파일 추가
 - [mybatis-config.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mybatis-config.xml) : mybatis 라이브러리 적용 후 기본 설정 파일로 기능   
-- configuration 태그 내부에 설정할 내용들을 기술하는 것   
+- __`configuration`__ 태그 내부에 설정할 내용들을 기술하는 것   
    
-- typeAliases : 객체 매핑시 사용할 자료형들의 별칭을 선언   
-    - typeAlias 태그 내부에 type 속성으로 클래스 정보를, alias 속성으로 사용할 별칭을 입력   
+- __`typeAliases`__ : 객체 매핑시 사용할 자료형들의 별칭을 선언   
+    - typeAlias 태그 내부에 __`type`__ 속성으로 클래스 정보를, __`alias`__ 속성으로 사용할 별칭을 입력   
    
-- environments : MyBatis와 연동시킬 DB 정보를 등록   
+- __`environments`__ : MyBatis와 연동시킬 DB 정보를 등록   
 - 작성 예시   
 ```
 <environments default="development">
@@ -83,20 +83,20 @@
     </environment>
 </environments>
 ```
-- dataSource : type 속성을 POOLED로 둘 경우 커넥션 객체를 pool 영역에 저장 후 이를 재사용하는 것을 의미
+- __`dataSource`__ : type 속성을 POOLED로 둘 경우 커넥션 객체를 pool 영역에 저장 후 이를 재사용하는 것을 의미
     - 한 번 만들어두고 재사용하기 때문에 매번 커넥션 객체를 생성할 필요 없음    
-- property : 외부 파일 내용을 읽어들일 때 사용
+- __`property`__ : 외부 파일 내용을 읽어들일 때 사용
     - 여기서는 JDBCTemplate 클래스 작성시 사용했는 드라이버 관련 정보를 입력
-- mappers : 사용하고자 하는 쿼리문들이 정의될 mapper xml 파일들을 등록   
+- __`mappers`__ : 사용하고자 하는 쿼리문들이 정의될 mapper xml 파일들을 등록   
    
 ### 2. mapper 파일 구성
 - mybatis-config.xml에 등록한 mapper 파일을 동일하게 resources 폴더에 추가   
 - [member-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/member-mapper.xml), [board-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/board-mapper.xml) : mapper 파일 예시
 - member-mapper.xml을 예시로 살펴보자   
 
-- resultMap : type에 typeAlias로 설정한 객체 타입을 명시하며, id에는 쿼리문 실행 결과를 매핑시킬 아이디값을 입력
-   - 기본키에 해당하는 태그만 id로 받고, 나머지는 result 태그로 받아줌   
-   - property 속성에는 매핑시킬 객체 내부의 인스턴스 변수명을, column은 매핑시킬 테이블의 컬럼명을 명시
+- __`resultMap`__ : type에 typeAlias로 설정한 객체 타입을 명시하며, id에는 쿼리문 실행 결과를 매핑시킬 아이디값을 입력
+   - 기본키에 해당하는 태그만 __`id`__로 받고, 나머지는 __`result`__ 태그로 받아줌   
+   - __`property`__ 속성에는 매핑시킬 객체 내부의 인스턴스 변수명을, __`column`__은 매핑시킬 테이블의 컬럼명을 명시
 ```
 <resultMap type="Member" id="memberResultSet">
     <id property="userNo" column="USER_NO"/>
@@ -117,7 +117,7 @@
 - 쿼리문 입력시 select, insert, delete, update 네가지 태그를 통해 CRUD을 구현
     - parameterType : 매핑시킬 객체타입을 속성값으로 명시
     - id : 쿼리문의 실행 결과를 연동시킬 DAO 클래스의 메소드명에서 반환한 값을 명시
-    - 객체와 매핑시킬 때는 resultMap으로 속성을 명시해야 함 / 그렇지 않을 경우에는 resultType으로 명시 후, 속성값으로 클래스 정보를 명시   
+    - 객체와 매핑시킬 때는 __`resultMap`__으로 속성을 명시해야 함 / 그렇지 않을 경우에는 __`resultType`__으로 명시 후, 속성값으로 클래스 정보를 명시   
 ```  
 <select id="loginMember"
           parameterType="Member"
