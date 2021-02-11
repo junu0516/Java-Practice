@@ -143,6 +143,21 @@
 </update>
 	
 ```  
+
+### 3. mapper.xml을 통해 쿼리문 실행 후 매핑해보기
+- 기존의 JDBC 사용 패턴 대로 Controller & VO(DTO) & Service & DAO 사용의 패턴을 따르되, DAO에서 처리하는 코드의 수가 획기적으로 줄어드는 것을 확인할 수 있음   
+    - 쿼리문 작성 및 DB와의 연동 등을 모두 xml파일에서 대신 처리해주기 때문   
+    
+- 회원 정보의 연동을 예로 살펴보도록 하자   
+    - [LoginServlet.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/member/controller/LoginServlet.java) : 컨트롤러 클래스(서블릿)   
+    - [Member.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/member/model/vo/Member.java) : VO(DTO) 클래스 / [MemberServiceImpl.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/member/model/service/MemberServiceImpl.java) : Service 클래스(MemberService 인터페이스 구현한 클래스)
+    - [MemberDao.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/member/model/dao/MemberDao.java) : 기존의 DAO와 달리 __`sqlSession`__ 객체로 필요한 정보만 넘겨주면, xml 파일일에서 알아서 연동 및 쿼리를 수행해서 VO 클래스에 정보를 담아주게 될 것
+```  
+loginUser = sqlSession.selectOne("memberMapper.loginMember",member);
+		
+```  
+    - [member-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/member-mapper.xml) : 위의 코드 실행시 memberMapper로 명시된 매퍼 파일 내에서 loginMember 이라는 id 속성으로 명시된 쿼리문 태그가 실행됨   
+ 
 ([맨 위로](#목차))
 * * *
 
