@@ -153,10 +153,10 @@
     - [Member.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/member/model/vo/Member.java) : VO(DTO) 클래스 / [MemberServiceImpl.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/member/model/service/MemberServiceImpl.java) : Service 클래스(MemberService 인터페이스 구현한 클래스)
     - [MemberDao.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/member/model/dao/MemberDao.java) : 기존의 DAO와 달리 __`sqlSession`__ 객체로 필요한 정보만 넘겨주면, xml 파일일에서 알아서 연동 및 쿼리를 수행해서 VO 클래스에 정보를 담아주게 될 것
 ```  
-loginUser = sqlSession.selectOne("memberMapper.loginMember",member);
-		
-```  
-    - [member-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/member-mapper.xml) : 위의 코드 실행시 memberMapper로 명시된 매퍼 파일 내에서 loginMember 이라는 id 속성으로 명시된 쿼리문 태그가 실행됨   
+loginUser = sqlSession.selectOne("memberMapper.loginMember",member);		
+```
+   
+- [member-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/member-mapper.xml) : 위의 코드 실행시 memberMapper로 명시된 매퍼 파일 내에서 loginMember 이라는 id 속성으로 명시된 쿼리문 태그가 실행됨   
  
 ([맨 위로](#목차))
 * * *
