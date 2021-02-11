@@ -187,7 +187,8 @@
 - [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/pom.xml) : spring-context, spring-webmvc dependency, Servlet, JSP, JSTL 종속성  추가    
     - 이후, 반드시 프로젝트의 properties에서 메이븐 기반으로 넣어준 dependency를 deploy해야 함   
 
-- [WebMvcContextConfiguration.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/java/com/junu/webmvc/config/WebMvcContextConfiguration.java) : Dispatcher Servlet 클래스로 WebMvcConfiguration 클래스를 상속받음
+- [WebMvcContextConfiguration.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/mvcexam/src/main/java/com/junu/webmvc/config/WebMvcContextConfiguration.java) : Dispatcher Servlet 클래스로 WebMvcConfiguration 클래스를 상속받음   
+    - 해당 클래스는 기존의 servlet-context.xml 파일을 자바 클래스로 대체한 것
     - @EnableWebMvc로 기본적 설정은 자동으로 할 수 있지만, 이외의 설정이 필요할 경우에는 필요한 메소드를 오버라이딩 해야 함
     - __`addResourceHandlers`__ : 요청이 들어왔을 때, 특정 url 요청에 대해서 알맞은 디렉토리에서 찾도록 설정(그렇지 않을 경우에는 모든 요청을 매핑으로 찾으려 들기 때문에 오류가 발생할 수 있음)    
     - __`configureDefaultServletHandling`__ : DefaultServletHandler를 사용하도록 하는 메소드로 __`configurer.enable()`__ 메소드 사용시, 매핑정보가 없는 url 요청에 대해 이를 DefaultServletHandler가 처리하도록 함
