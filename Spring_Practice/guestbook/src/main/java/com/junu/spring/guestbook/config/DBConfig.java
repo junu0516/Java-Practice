@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 @Configuration
 @EnableTransactionManagement 
 public class DBConfig implements TransactionManagementConfigurer {
+	
 	private final String driverClassName = "com.mysql.jdbc.Driver";
     private final String url = "jdbc:mysql://localhost:3306/connectdb?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul&useSSL=false"; 
     private final String username = "connectuser";

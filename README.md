@@ -157,6 +157,19 @@ loginUser = sqlSession.selectOne("memberMapper.loginMember",member);
 ```
    
 - [member-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/member-mapper.xml) : 위의 코드 실행시 memberMapper로 명시된 매퍼 파일 내에서 loginMember 이라는 id 속성으로 명시된 쿼리문 태그가 실행됨   
+   
+### 4. RowBounds를 활용하여 페이징 처리하기
+- __`RowBounds`__ : MyBatis에서 기본적으로 제공하는 페이징 처리를 위한 클래스(구간을 적용하여, 구간 내에 있는 row만 추출)
+    - 기존에는 페이징 처리시 이를 위한 정보를 쿼리문에 담아서 원하는 개수만큼의 row를 DB에서 받아왔음   
+    - __`RowBounds`__ 를 활용할 경우 개수 정보만 매퍼로 넘기면 되기 때문에 더욱 편리함
+    - 단, 내부 구조상 건너뛰어야 할 데이터도 분류하기 위해 일단 모든 데이터를 찾아 판별하므로 데이터의 크기가 방대할 경우에는 오히려 비효율적임   
+   
+- [BoardDao.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/board/model/dao/BoardDao.java) : Dao 클래스에서 아래와 같이 RowBounds 객체를 파라미터에 담아서 리턴   
+    - RowBounds 객체 생성시 들어갈 매개변수는 아래와 같음
+    - 건너뛸 데이터의 개수, 한 번에 보여줄 데이터의 최대 개수(limit)
+```  
+RowBounds rowBounds = new RowBounds(offset,pageInfo.getBoardLimit());	
+```
  
 ([맨 위로](#목차))
 * * *
