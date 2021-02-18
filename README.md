@@ -10,7 +10,8 @@
     - 1. [resources 폴더에 xml 파일 추가](#1-resources-폴더에-xml-파일-추가)   
     - 2. [mapper 파일 구성](#2-mapper-파일-구성)   
     - 3. [mapper.xml을 통해 쿼리문 실행 후 매핑해보기](#3-mapperxml을-통해-쿼리문-실행-후-매핑해보기)
-    - 4. [RowBounds를 활용하여 페이징 처리하기](#4-rowbounds를-활용하여-페이징-처리하기)
+    - 4. [RowBounds를 활용하여 페이징 처리하기](#4-rowbounds를-활용하여-페이징-처리하기)   
+    - 5. [SearchCondition을 통한 검색 기능 구현](#5-searchcondition을-통한-검색-기능-구현)
 - [스프링 연습 코드](#스프링-연습한-코드-저장)   
     - 1. [DI, IoC](#1-di-ioc)   
     - 2. [Spring JDBC 테스트](#2-spring-jdbc-테스트)
@@ -193,7 +194,8 @@ PageInfo pageInfo = Pagination.getPageInfo(listCount,currentPage,pageLimit,board
 ```  
 RowBounds rowBounds = new RowBounds(offset,pageInfo.getBoardLimit());	
 ```
-   
+    
+### 5. SearchCondition을 통한 검색 기능 구현
  
 ([맨 위로](#목차))
 * * *
