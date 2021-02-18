@@ -1,8 +1,15 @@
 # 목차   
 클릭하여 해당 항목으로 이동
-- [JDBC 연습 코드](#jdbc와-jsp-연습한-코드-저장)   
+- [JDBC, JSP 연습 코드](#jdbc와-jsp-연습한-코드-저장)   
 - [MyBatis 연습 코드](#MyBatis-연습한-코드-저장)
 - [스프링 연습 코드](#스프링-연습한-코드-저장)   
+    - 1. [DI, IoC](#1.-DI,-IoC)   
+    - 2. [Spring JDBC 테스트](#2.-Spring-JDBC-테스트)
+    - 3. [SELECT, UPDATE, DELETE 쿼리문 실행](#3.-SELECT,-UPDATE,-DELETE-쿼리문-실행)
+    - 4. [Spring MVC 사용하기](#4.-Spring-MVC-사용하기)
+    - 5. [MVC2 모델을 적용한 방명록 사이트 만들어보기](#5.-실습-:-MVC2-모델을-적용한-방명록-사이트-만들어보기)
+    - 6. [@RestController을 통해 Web API 작성해보기](#6.-@RestController을-통해-Web-API-작성해보기)
+    - 7. [Swagger을 사용하여 WEB API 문서화해보기](#7.-Swagger을-사용하여-WEB-API-문서화해보기)
 - [스프링부트 연습 코드](#스프링부트-연습한-코드-저장)
   
 * * *
@@ -275,7 +282,7 @@ RowBounds rowBounds = new RowBounds(offset,pageInfo.getBoardLimit());
 - __`@PostMapping`__ : 마찬가지로 POST 요청이 들어올 경우에는 명시된 메소드를 호출하며, 여기서는 Guestbook 타입 객체를 JSON으로 변환시켜 클라이언트에게 전송
     - 단, Guestbook 타입 객체 반환시, 클라이언트의 ip 주소를 같이 받아줌   
    
-### 7. Swager을 사용하여 WEB-API 문서화해보기
+### 7. Swagger을 사용하여 WEB API 문서화해보기
 - [pom.xml](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/pom.xml) : 여기서는 web.xml을 사용하지 않기 위한 설정과, 스웨거와의 연동을 위한 종속성을 추가
     - properties 태그 내에 web.xml을 사용하지 않도록 사전설정 추가   
     - 초기화시 "web.xml is missing~"과 같은 예외가 발생하지 않도록 하기 위한 것   
@@ -290,7 +297,16 @@ RowBounds rowBounds = new RowBounds(offset,pageInfo.getBoardLimit());
     - getRootConfigClasses : 스프링 기본 설정파일 클래스를 지정(사용할 Bean들을 설정하는 것) / [ApplicationConfig.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/config/ApplicationConfig.java)    
     - getServletConfigClasses : 스프링 MVC 설정 파일 클래스를 지정 / [MvcConfig.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/config/MvcConfig.java)
     - getServletMappings : DispatcherServlet이 동작할 매핑정보를 설정
-    - getServletFilters : 필터를 설정
+    - getServletFilters : 필터를 설정   
+- [CalculatorApiController.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/controller/CalculatorApiController.java) : 컨트롤러 클래스   
+    - __`@ApiResponse`__ : 요청 처리 후 상태 코드에 따라 어떤 메시지를 출력할 것인지를 정의
+``` 
+@ApiResponses({
+     @ApiResponse(code = 200, message="OK"),
+     @ApiResponse(code = 500, message="Exception")
+})
+``` 
+- [CalculatorService.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/service/CalculatorService.java), [CalculatorResult.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/dto/CalculatorResult.java) : Service, DTO 클래스
 
 ([맨 위로](#목차))
 * * *   
