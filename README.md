@@ -60,18 +60,25 @@
 - 쿠키와 세션의 동작구조에 대한 설명은 [여기](https://junu0516.tistory.com/75)를 보자   
 
 - 서블릿에서 쿠키 생성하여 활용:
+    - 클라이언트가 보낸 쿠키 정보를 읽고자 할 때는 __`request.getCookies()`__ 를 통해 쿠키 배열값을 읽어들임
+        - 만일 쿠키 값이 없다면 null을 반환함 
     -  __`Cookie`__ : 쿠키 객체를 생성하여 __`response`__ 객체에 담아서 응답하는 구조
     - 파라미터로 key, value의 두 가지 String 값을 넣어줌   
     - 쿠키의 유효기간 설정시 __`.setMaxAge()`__ 메소드 활용
-    - 쿠키를 삭제하고자 할 경우에는 삭제할 쿠키의 key에 해당하는 value를 null로 만들어주면 됨
+    - 쿠키를 삭제하고자 할 경우에는 삭제할 쿠키의 key에 해당하는 value를 null로 만들고 유지시간을 0으로 설정
         - 이렇게 하면 동일한 key를 가진 쿠키를 찾아 value를 교체해주기 때문에 자연스레 삭제되는 것
 ```
+//클라이언트가 보낸 쿠키 정보 읽기
+Cookie[] cookies = request.getCookies();
+
+//쿠키 생성
 Cookie cookie = new Cookie("id", "user");
 cookie.setMaxAge(24*60*60) //유효기간을 1일로 설정
 response.addCookie(cookie);
    
 // 쿠키 삭제시
 Cookie deleteCookie = new Cookie("id", "");
+deleteCookie.setMaxAge(0);
 response.addCookie(deleteCookie);
 ```
    

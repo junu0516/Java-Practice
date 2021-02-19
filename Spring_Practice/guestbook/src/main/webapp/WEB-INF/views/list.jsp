@@ -8,9 +8,8 @@
 <title>방명록 리스트</title>
 </head>
 <body>
-	<%
-		System.out.println("list.jsp here");
-	%>
+	<h1>방명록</h1><br>
+	방명록 전체 수 : ${count}, 방문자 수 : ${cookieCount}
 	<c:forEach items="${list}" var="guestbook">
 	
 		${guestbook.id }<br>
