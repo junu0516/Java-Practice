@@ -59,6 +59,32 @@
 - 기존 요청의 정보를 지속적으로 유지해야할 필요가 있을때 http의 무상태성과 비연결 지향을 극복하기 위한 것
 - 쿠키와 세션의 동작구조에 대한 설명은 [여기](https://junu0516.tistory.com/75)를 보자   
 
+- 서블릿에서 쿠키 생성하여 활용:
+    -  __`Cookie`__ : 쿠키 객체를 생성하여 __`response`__객체에 담아서 응답하는 구조
+    - 파라미터로 key, value의 두 가지 String 값을 넣어줌   
+    - 쿠키의 유효기간 설정시 __`.setMaxAge()`__ 메소드 활용
+    - 쿠키를 삭제하고자 할 경우에는 삭제할 쿠키의 key에 해당하는 value를 null로 만들어주면 됨
+        - 이렇게 하면 동일한 key를 가진 쿠키를 찾아 value를 교체해주기 때문에 자연스레 삭제되는 것
+```
+Cookie cookie = new Cookie("id", "user");
+cookie.setMaxAge(24*60*60) //유효기간을 1일로 설정
+response.addCookie(cookie);
+   
+// 쿠키 삭제시
+Cookie deleteCookie = new Cookie("id", "");
+response.addCookie(deleteCookie);
+```
+   
+- 서블릿에서 세션 활용하기 :
+    - 쿠키의 경우 클라이언트 측에 저장되기 때문에, 보안상 노출되면 안되는 정보는 세션으로 관리하는 것이 적합
+    -  세션 객체를 얻을 때는 __`request.getSession()`__ 을 통해 __`HttpSession`__타입의 객체를 생성
+    -  세션 내에 정보를 저장할 때에는, 세션객체에 __`.setAttribute()`__ 를 통해 key와 value를 저장
+```
+HttpSession session = request.getSession();
+session.setAttribute("test","test 값");
+response.sendRedirect(request.getContextPath());
+```
+   
 ### 5. 간단한 CRUD 게시판 만들어보기    
 - [기능별 플로우 확인](https://github.com/junu0516/java-practice/tree/main/jsp_CRUD%EA%B2%8C%EC%8B%9C%ED%8C%90%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EA%B8%B0)    
 - JDBC를 활용하여 서버와 DB 연동   
