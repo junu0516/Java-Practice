@@ -231,6 +231,35 @@ RowBounds rowBounds = new RowBounds(offset,pageInfo.getBoardLimit());
 ```
     
 ### 5. SearchCondition을 통한 검색 기능 구현
+- [SearchCondition.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/board/model/vo/SearchCondition.java) : 검색어 관련 키워드 정보를 저장하고 있는 VO(DTO) 객체
+    - 여기서는 필드에 작성자, 제목, 내용 세 가지 키워드를 인스턴스로 두고 있음
+   
+- [BoardSearchServlet.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/board/controller/BoardSearchServlet.java) : 키워드 검색시 사용할 컨트롤러
+    - 페이징 처리를 위한 PageInfo 객체와 함께 SearchCondition 객체를 담아서 Service->Dao 순으로 보내서 처리하는 것
+- [board-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/board-mapper.xml)에서 아래와 같이 쿼리문을 작성하여, 검색한 키워드를 기반으로 DB로부터 데이터를 불러오면 됨
+```   
+<select id="selectListCon"
+          resultMap="boardResultMap">
+    SELECT BOARD_NO, BOARD_TITLE, USER_ID, COUNT, CREATE_DATE
+    FROM BOARD B
+    JOIN MEMBER ON (BOARD_WRITER=USER_NO)
+	<trim prefix="WHERE" prefixOverrides="AND|OR">
+	    <choose>
+	        <when test="writer != null">
+	            AND USER_ID LIKE '%'||#{writer}||'%'
+	        </when>
+	        <when test="title != null">
+	            AND BOARD_TITLE LIKE '%'||#{title}||'%'
+	        </when>
+	        <otherwise>
+	            AND BOARD_CONTENT LIKE '%'||#{content}||'%'
+	        </otherwise>
+	    </choose>
+	</trim>
+	AND B.STATUS='Y'
+	ORDER BY BOARD_NO DESC
+</select>
+```
  
 ([맨 위로](#목차))
 * * *
