@@ -20,6 +20,8 @@
     - 5. [MVC2 모델을 적용한 방명록 사이트 만들어보기](#5-실습--mvc2-모델을-적용한-방명록-사이트-만들어보기)
     - 6. [@RestController을 통해 Web API 작성해보기](#6-restcontroller을-통해-web-api-작성해보기)
     - 7. [Swagger을 사용하여 WEB API 문서화해보기](#7-swagger을-사용하여-web-api-문서화해보기)
+    - 8. [Mock 객체를 활용하여 테스트코드 작성하기](#8-mock-객체를-활용하여-테스트코드-작성하기)
+    - 9. [스프링에서 쿠키와 세션 다루기](#9-스프링에서-쿠키와-세션-다루기)
 - [스프링부트 연습 코드](#스프링부트-연습한-코드-저장)
   
 * * *
@@ -359,6 +361,21 @@ RowBounds rowBounds = new RowBounds(offset,pageInfo.getBoardLimit());
 })
 ``` 
 - [CalculatorService.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/service/CalculatorService.java), [CalculatorResult.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/dto/CalculatorResult.java) : Service, DTO 클래스
+
+### 8. Mock 객체를 활용하여 테스트코드 작성하기
+
+### 9. 스프링에서 쿠키와 세션 다루기
+- [GuestbookController.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/controller/GuestbookController.java) : list 메소드에 쿠키를 활용하여 방문자수 정보를 업데이트 하는 로직을 추가
+- __`@CookieValue`__ : 특정 이름의 쿠키를 가져와 사용할 경우 해당 어노테이션을 활용
+    - request 객체로부터 __`getCookies()`__ 를 통해 쿠키 배열을 가져오기 보단, 어노테이션을 통해 특정 이름의 쿠키값을 바로 가져와서 사용할 수 있음
+``` 
+//어노테이션 사용할 경우
+@CookieValue(value="count",defaultValue="0",required=true)String value
+
+//request 객체로 가져올 경우
+Cookie[] cookies = request.getCookies();
+```
+
 
 ([맨 위로](#목차))
 * * *   
