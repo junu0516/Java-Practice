@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>방명록</h1><br>
-	방명록 전체 수 : ${count}, 방문자 수 : ${cookieCount}
+	방명록 전체 수 : ${count}, 방문자 수 : ${cookieCount}<br><br>
 	<c:forEach items="${list}" var="guestbook">
 	
 		${guestbook.id }<br>

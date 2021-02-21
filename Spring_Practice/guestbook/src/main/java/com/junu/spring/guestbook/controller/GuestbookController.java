@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +27,7 @@ public class GuestbookController {
 	
 	@GetMapping(path="/list")
 	public String list(@RequestParam(name="start", required=false, defaultValue="0") int start, ModelMap model, 
-						HttpServletRequest request, HttpServletResponse response) {
+						@CookieValue(value="count",defaultValue="0",required=true)String value, HttpServletResponse response) {
 		
 		String value = null;
 		boolean find = false;
@@ -53,6 +54,15 @@ public class GuestbookController {
 				value = "1";
 			}
 		}
+		*/
+		
+		try {
+			int i = Integer.parseInt(value)+1;
+			value = String.valueOf(i); //기존의 value에 1 누적
+		}catch(Exception e) {
+			value = "1";
+		}
+		
 		
 		Cookie cookie = new Cookie("count",value);
 		cookie.setMaxAge(60*60*24*365); //쿠키의 유효기간을 1년으로 설정(초/분/시/일)
