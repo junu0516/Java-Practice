@@ -29,6 +29,16 @@ public class GuestbookController {
 	public String list(@RequestParam(name="start", required=false, defaultValue="0") int start, ModelMap model, 
 						@CookieValue(value="count",defaultValue="0",required=true)String value, HttpServletResponse response) {
 		
+		//파라미터로 request 객체 명시해서 활용하지 않고 @CookieValue 어노테이션을 활용하면 아래의 과정을 거치지 않아도 됨
+		/*
+		 * 쉽게 특정 이름의 쿠키값을 가져올 수 있기 때문에 더욱 편리(굳이 쿠키 배열을 가져와서 그 안에서 원하는 쿠키를 찾을 필요 X)
+		 * 
+		 * @CookieValue(value=쿠키명, required=false, defaultValue=기본값)String 변수명
+		 * 
+		 * */
+		
+		/*
+		 * 아래는 @CookieValue 어노테이션 없이, request와 response 객체만을 가지고 쿠키를 다룰 경우
 		String value = null;
 		boolean find = false;
 		Cookie[] cookies = request.getCookies(); //클라이언트로부터 얻어온 쿠키의 배열
