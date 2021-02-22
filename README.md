@@ -86,12 +86,22 @@ response.addCookie(deleteCookie);
    
 - 서블릿에서 세션 활용하기 :
     - 쿠키의 경우 클라이언트 측에 저장되기 때문에, 보안상 노출되면 안되는 정보는 세션으로 관리하는 것이 적합
-    -  세션 객체를 얻을 때는 __`request.getSession()`__ 을 통해 __`HttpSession`__타입의 객체를 생성
+    -  세션 객체를 얻을 때는 __`request.getSession()`__ 을 통해 __`HttpSession`__ 타입의 객체를 생성
     -  세션 내에 정보를 저장할 때에는, 세션객체에 __`.setAttribute()`__ 를 통해 key와 value를 저장
+    -  세션 객체 내의 특정 정보를 지울 때에는 __`.removeAttribute()`__ 를, 세션 전체를 없을 때는 __`.invalidate()`__ 메소드를 각각 사용
+    -  세션 아이디(Session id)를 얻고자 할 경우에는 __`.getId()`__ 메소드 사용 
+   
+    - 보통 세션 객체는, 클라이언트가 서버에 요청하는 순간 생성되며 유지 시간은 기본적으로 30분으로 설정되어 있음
+    - 유지시간은 서버에 접속한 후 서버에 요청을 하지 않는 최대 시간을 말함
+    - 따라서, 30분 이상 서버에 반응을 보이지 않으면 세션이 자동으로 끊어지는 것을 의미
+    - 유지 시간을 늘리고 싶으면 web.xml에서 설정
 ```
 HttpSession session = request.getSession();
 session.setAttribute("test","test 값");
 response.sendRedirect(request.getContextPath());
+
+session.removeAttribute("test");
+session.invalidate(); //모든 세션 정보 삭제
 ```
    
 ### 5. 간단한 CRUD 게시판 만들어보기    
