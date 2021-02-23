@@ -7,11 +7,12 @@
     - 4. [자바 서블릿으로 쿠키, 세션 활용하기](#4-자바-서블릿으로-쿠키-세션-활용하기)   
     - 5. [간단한 CRUD 게시판 만들기](#5-간단한-crud-게시판-만들어보기)
 - [MyBatis 연습 코드](#MyBatis-연습한-코드-저장)
-    - 1. [resources 폴더에 xml 파일 추가](#1-resources-폴더에-xml-파일-추가)   
-    - 2. [mapper 파일 구성](#2-mapper-파일-구성)   
-    - 3. [mapper.xml을 통해 쿼리문 실행 후 매핑해보기](#3-mapperxml을-통해-쿼리문-실행-후-매핑해보기)
-    - 4. [RowBounds를 활용하여 페이징 처리하기](#4-rowbounds를-활용하여-페이징-처리하기)   
-    - 5. [SearchCondition을 통한 검색 기능 구현](#5-searchcondition을-통한-검색-기능-구현)
+    - 1. [SqlSession 객체를 반환할 템플릿 생성](#1-sqlsession-객체를-반환할-템플릿-생성)
+    - 2. [resources 폴더에 xml 파일 추가](#2-resources-폴더에-xml-파일-추가)   
+    - 3. [mapper 파일 구성](#3-mapper-파일-구성)   
+    - 4. [mapper.xml을 통해 쿼리문 실행 후 매핑해보기](#4-mapperxml을-통해-쿼리문-실행-후-매핑해보기)
+    - 5. [RowBounds를 활용하여 페이징 처리하기](#5-rowbounds를-활용하여-페이징-처리하기)   
+    - 6. [SearchCondition을 통한 검색 기능 구현](#6-searchcondition을-통한-검색-기능-구현)
 - [스프링 연습 코드](#스프링-연습한-코드-저장)   
     - 1. [DI, IoC](#1-di-ioc)   
     - 2. [Spring JDBC 테스트](#2-spring-jdbc-테스트)
@@ -122,8 +123,19 @@ session.invalidate(); //모든 세션 정보 삭제
 - mybatis-config.xml에서 DB 연결 설정 및 SQL 구문의 경로를 설정   
 - mapper.xml에서 DB와의 연동이 필요한 패키지별로 쿼리문을 설정 및 매핑
 ```
-    
-### 1. resources 폴더에 xml 파일 추가
+### 1. SqlSession 객체를 반환할 템플릿 생성
+- [Template.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/common/Template.java) : __`SqlSession`__ 객체를 반환할 템플릿 클래스 생성
+    - InputStream을 통해 Session Factory 기능을 하게 될 객체를 생성 후, 여기서 다시 SqlSession 객체를 생성하는 구조
+    - 여기서 __`openSession(false)`__ 로 선언할 경우 수동으로 커밋하게 설정할 수 있음
+```
+InputStream stream = Resources.getResourceAsStream("/mybatis-config.xml"); //Session Factory 생성을 위한 InputStream
+sqlSession = new SqlSessionFactoryBuilder().build(stream).openSession(false); //Session Factory에서 SqlSession 객체 생성
+```
+- __`SessionFactoryBuilder`__ 객체를 생성하기 이전, InputStream을 통해 mybatis 설정 xml 파일의 정보를 읽어들이도록 함
+    - 여기서는 후술할 __`resources`__ 폴더에 있는 __`mybatis-config.xml`__ 파일을 사용
+- 이후 Service, Dao 영역에서 템플릿을 static import 하여 만들어진 sqlSession 객체를 가져다 쓰면 됨( __싱글톤 패턴__ )
+
+### 2. resources 폴더에 xml 파일 추가
 - [mybatis-config.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mybatis-config.xml) : mybatis 라이브러리 적용 후 기본 설정 파일로 기능   
 - __`configuration`__ 태그 내부에 설정할 내용들을 기술하는 것   
    
@@ -151,7 +163,7 @@ session.invalidate(); //모든 세션 정보 삭제
     - 여기서는 JDBCTemplate 클래스 작성시 사용했는 드라이버 관련 정보를 입력
 - __`mappers`__ : 사용하고자 하는 쿼리문들이 정의될 mapper xml 파일들을 등록   
    
-### 2. mapper 파일 구성
+### 3. mapper 파일 구성
 - mybatis-config.xml에 등록한 mapper 파일을 동일하게 resources 폴더에 추가   
 - [member-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/member-mapper.xml), [board-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/board-mapper.xml) : mapper 파일 예시
 - member-mapper.xml을 예시로 살펴보자   
@@ -205,7 +217,7 @@ session.invalidate(); //모든 세션 정보 삭제
 	
 ```  
 
-### 3. mapper.xml을 통해 쿼리문 실행 후 매핑해보기
+### 4. mapper.xml을 통해 쿼리문 실행 후 매핑해보기
 - 기존의 JDBC 사용 패턴 대로 Controller & VO(DTO) & Service & DAO 사용의 패턴을 따르되, DAO에서 처리하는 코드의 수가 획기적으로 줄어드는 것을 확인할 수 있음   
     - 쿼리문 작성 및 DB와의 연동 등을 모두 xml파일에서 대신 처리해주기 때문   
     
@@ -219,7 +231,7 @@ loginUser = sqlSession.selectOne("memberMapper.loginMember",member);
    
 - [member-mapper.xml](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/resources/mappers/member-mapper.xml) : 위의 코드 실행시 memberMapper로 명시된 매퍼 파일 내에서 loginMember 이라는 id 속성으로 명시된 쿼리문 태그가 실행됨   
    
-### 4. RowBounds를 활용하여 페이징 처리하기
+### 5. RowBounds를 활용하여 페이징 처리하기
 - __`RowBounds`__ : MyBatis에서 기본적으로 제공하는 페이징 처리를 위한 클래스(구간을 적용하여, 구간 내에 있는 row만 추출)
     - 기존에는 페이징 처리시 이를 위한 정보를 쿼리문에 담아서 원하는 개수만큼의 row를 DB에서 받아왔음   
     - __`RowBounds`__ 를 활용할 경우 개수 정보만 매퍼로 넘기면 되기 때문에 더욱 편리함
@@ -239,7 +251,7 @@ PageInfo pageInfo = Pagination.getPageInfo(listCount,currentPage,pageLimit,board
 RowBounds rowBounds = new RowBounds(offset,pageInfo.getBoardLimit());	
 ```
     
-### 5. SearchCondition을 통한 검색 기능 구현
+### 6. SearchCondition을 통한 검색 기능 구현
 - [SearchCondition.java](https://github.com/junu0516/Java-Practice/blob/main/myBatisProject/src/com/kh/myBatis/board/model/vo/SearchCondition.java) : 검색어 관련 키워드 정보를 저장하고 있는 VO(DTO) 객체
     - 여기서는 필드에 작성자, 제목, 내용 세 가지 키워드를 인스턴스로 두고 있음
    

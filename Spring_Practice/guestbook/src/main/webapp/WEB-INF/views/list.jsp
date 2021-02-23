@@ -9,6 +9,10 @@
 </head>
 <body>
 	<h1>방명록</h1><br>
+	<c:if test="${sessionScope.isAdmin == 'true'}">
+		관리자로 로그인하였습니다.<br>
+		<a href="logout">로그아웃</a>
+	</c:if><br><br>
 	방명록 전체 수 : ${count}, 방문자 수 : ${cookieCount}<br><br>
 	<c:forEach items="${list}" var="guestbook">
 	
@@ -16,6 +20,9 @@
 		${guestbook.name }<br>
 		${guestbook.content }<br>
 		${guestbook.regdate }<br>
+		<c:if test="${sessionScope.isAdmin == 'true'}">
+		<a href="delete?id=${guestbook.id}">삭제</a>
+		</c:if><br>
 	
 	</c:forEach>
 	<br>

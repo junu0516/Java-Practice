@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.junu.spring.guestbook.dto.Guestbook;
 import com.junu.spring.guestbook.service.GuestbookService;
@@ -112,6 +114,22 @@ public class GuestbookController {
 		guestbookService.addGuestbook(guestbook, clientIp);
 		
 		return "redirect:list"; //데이터 리소스의 변경을 수반할 경우에는 redirect가 적합... 여기서는 리턴할 문자열에 redirect:를 앞에 붙여주면 됨(response.sendRedirect())
+	}
+	
+	@GetMapping(path="/delete")
+	public String delete(@RequestParam(name="id", required=true)Long id,
+						 @SessionAttribute("isAdmin") String isAdmin,
+						 HttpServletRequest request,
+						 RedirectAttributes redirectAttr) {
+		
+		if(isAdmin == null || !"true".equals(isAdmin)) {
+			redirectAttr.addFlashAttribute("errorMessage","Currently Not Logged In");
+			return "redirect:loginForm";
+		}
+		
+		String clientIp = request.getRemoteAddr();
+		guestbookService.deleteGuestbook(id, clientIp);
+		return "redirect:list";
 	}
 	
 }
