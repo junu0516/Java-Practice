@@ -426,6 +426,54 @@ RowBounds rowBounds = new RowBounds(offset,pageInfo.getBoardLimit());
 Cookie[] cookies = request.getCookies();
 ```
 
+- [GuessNumberController.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/controller/GuessNumberController.java) : 일반 서블릿에서 HttpSessino 객체 사용하는 것과 동일
+    - 컨트롤러 메소드의 파라미터로 __`HttpSession`__ 객체와, __`ModelMap`__ 객체를 사용하여 세션 활용하였음
+    - __`ModelMap`__ : view로 객체를 넘길 때, __`addAttribute()`__ 메소드 사용   
+
+- [GuestbookAdminController.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/controller/GuestbookAdminController.java) : session 객체 외에도, redirect에 적용할 flash message를 설정해볼 수 있음
+    - __`RedirectAttributes`__ 타입의 객체를 파라미터로 받은 후, flash message로 사용할 속성을 __`.addFlashAttribute()`__ 메소드를 통해 지정
+    - 여기서는 예외 발생시 에러페이지로 redirect할 경우 사용할 flash message를 설정하였음
+      
+- 어노테이션 사용해서 세션 활용하기 
+- __`@SessionAttributes`__ 와 __`@ModelAttribute`__ 어노테이션 사용
+    -  세션 파라미터로 지정된 이름과 같은 이름이 @ModelAttribute에 지정되어있을 경우, 세션에 있는 객체를 가져와서 활용
+``` 
+@Controller
+@SessionAttributes("user")
+public class LoginController {
+......
+  @PostMapping("/dologin")
+  public String doLogin(@ModelAttribute("user") User user, Model model) {
+......
+``` 
+
+- __`@SessionAttribute`__ 어노테이션 사용
+    - 메소드에 @SessionAttribute가 있을 경우, 파라미터로 지정된 이름으로 등록된 세션 정보 읽어와서 변수에 할당
+```
+@GetMapping("/info")
+public String userInfo(@SessionAttribute("user") User user) {
+//...
+return "user";
+}
+```
+   
+- __`@SessionStatus`__ 어노테이션 사용
+    - 컨트롤러 메소드의 파라미터로 사용할 수 있는 스프링 내장 타입
+    - 현재 컨트롤러의 __`@SessionAttributes`__ 에 의해 지정된 객체들을 제거할 수 있음
+```
+@Controller
+@SessionAttributes("user")
+public class UserController {
+...... 
+    @RequestMapping(value = "/user/add", method = RequestMethod.POST)
+    public String submit(@ModelAttribute("user") User user, SessionStatus sessionStatus) {
+  ......
+  sessionStatus.setComplete();
+                                   ......
+
+   }
+ }
+```
 
 ([맨 위로](#목차))
 * * *   
