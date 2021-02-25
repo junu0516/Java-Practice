@@ -22,7 +22,8 @@
     - 6. [@RestController을 통해 Web API 작성해보기](#6-restcontroller을-통해-web-api-작성해보기)
     - 7. [Swagger을 사용하여 WEB API 문서화해보기](#7-swagger을-사용하여-web-api-문서화해보기)
     - 8. [Mock 객체를 활용하여 테스트코드 작성하기](#8-mock-객체를-활용하여-테스트코드-작성하기)
-    - 9. [스프링에서 쿠키와 세션 다루기](#9-스프링에서-쿠키와-세션-다루기)
+    - 9. [스프링에서 쿠키와 세션 다루기](#9-스프링에서-쿠키와-세션-다루기)   
+    - 10. [Spring Security 사용하기](#10-spring-security-사용하기)
 - [스프링부트 연습 코드](#스프링부트-연습한-코드-저장)
   
 * * *
@@ -474,6 +475,29 @@ public class UserController {
    }
  }
 ```
+
+### 10. Spring Security 사용하기
+- [WebAppInitializer.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/securityexam/src/main/java/org/edwith/webbe/securityexam/config/WebAppInitializer.java) : 여기서 사용할 프로젝트는 web.xml 대신 WebAppInitializer 클래스를 사용   
+    - __`AbstractAnnotationConfigDispatcherServletInitializer`__ 클래스를 상속받아 web.xml 대체
+    - 맨 처음 서버 구동시 톰캣이 web.xml을 찾지 않아도 되도록 pom.xml에서 아래 설정을 반드시 해줌
+```
+<failOnMissingWebXml>false</failOnMissingWebXml>
+```
+
+- [SecurityWebApplicationInitializer.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/securityexam/src/main/java/org/edwith/webbe/securityexam/config/SecurityWebApplicationInitializer.java) : __`AbstractSecurityWebApplicationInitializer`__ 를 상속받는 Spring Security 관련 필터 활성화를 위한 클래스
+- [SecurityConfig.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/securityexam/src/main/java/org/edwith/webbe/securityexam/config/SecurityConfig.java) : Spring Security 사용을 위한 초기 설정   
+    - configure(WebSecurity web) : 인증이나 인가가 필요없는 페이지에 대한 설정
+    - configure(HttpSecurity http) : 인증이나 인가를 거쳐야 하는 페이지에 대한 설정
+```
+http.csrf().disable() //csrf : post 방식으로 값을 전송시 토큰사용을 위한 보안 설정 -> 여기서는 편의상 이를 disable 시켜서 끈 것
+    //보통 csrf가 기본으로 설정되어 있는데, 보안성이 높아지지만 초기에는 불편하기 때문에 일단 끈 것
+    .authorizeRequests()
+    .antMatchers("/","/main").permitAll() //명시한 경로에 대해 모두 permit(누구나 인증/인가 없이 접근이 가능한 것)
+    .anyRequest().authenticated(); //나머지 경로는 인증이나 인가를 모두 거쳐야 할 것임을 명시
+```
+
+- [MainController.java](https://github.com/junu0516/Java-Practice/tree/main/Spring_Practice/securityexam/src/main/java/org/edwith/webbe/securityexam/controller) : 테스트용 컨트롤러 클래스
+    - /securepage 라는 url로 받은 요청시 인증이나 인가를 거치지 않았기 때문에 403 메시지가 나오는 것을 확인할 수 있음
 
 ([맨 위로](#목차))
 * * *   
