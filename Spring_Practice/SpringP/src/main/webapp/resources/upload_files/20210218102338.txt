@@ -1,0 +1,11 @@
+데이터베이스
+http://ysweb.yonsei.ac.kr:8888/curri120601/curri_pop2.jsp?domain=H1&startyy=2020&hakgi=2&hakno=CSI3105&bb=01&sbb=00
+
+자료구조
+http://ysweb.yonsei.ac.kr:8888/curri120601/curri_pop2.jsp?domain=H1&startyy=2020&hakgi=2&hakno=CSI2103&bb=01&sbb=00
+
+운영체제
+http://ysweb.yonsei.ac.kr:8888/curri120601/curri_pop2.jsp?domain=H1&startyy=2020&hakgi=1&hakno=CSI3101&bb=01&sbb=00
+
+네트워크
+http://ysweb.yonsei.ac.kr:8888/curri120601/curri_pop2.jsp?domain=H1&startyy=2020&hakgi=2&hakno=CSI4106&bb=01&sbb=00

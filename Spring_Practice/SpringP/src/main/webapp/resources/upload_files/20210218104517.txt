@@ -1,0 +1,1 @@
+select category.id, category.name, count(display_info.id) as count from category join product on category.id = product.category_id join display_info on product.id = display_info.product_id  group by category.id;

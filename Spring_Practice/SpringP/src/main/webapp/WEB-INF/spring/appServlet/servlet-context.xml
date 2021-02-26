@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	<!-- 요청 관련 객체를 관리하는 곳 / view와 관련된 설정이 됨 -->
+	<!-- 따라서 해당 파일이 사실상 Front Controller로 기능하게 되며, xml 설정 후, 이를 반드시 web.xml에 등록해야 WAS 구동시 해당 파일의 설정을 읽게 됨 -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" /><!-- css파일과 같은 것들이 저장될 경로 -->
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<context:component-scan base-package="com.kh.spring"/>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/login.me"/> <!-- DispatcherServlet에 대해 들어오는 요청에 대한 처리 -->
+			<beans:bean id="loginInterceptor" class="com.kh.spring.common.interceptor.LoginInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/list.bo"/> <!-- DispatcherServlet에 대해 들어오는 요청에 대한 처리 -->
+			<beans:bean id="boardListInterceptor" class="com.kh.spring.common.interceptor.BoardListInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
+</beans:beans>
