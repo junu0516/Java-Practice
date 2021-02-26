@@ -14,6 +14,7 @@
     - 5. [RowBounds를 활용하여 페이징 처리하기](#5-rowbounds를-활용하여-페이징-처리하기)   
     - 6. [SearchCondition을 통한 검색 기능 구현](#6-searchcondition을-통한-검색-기능-구현)
 - [스프링 연습 코드](#스프링-연습한-코드-저장)   
+    - 0. [스프링을 활용한 간단한 CRUD 게시판 만들기 예시](#0-스프링을-활용한-간단한-crud-게시판-만들기-예시)
     - 1. [DI, IoC](#1-di-ioc)   
     - 2. [Spring JDBC 테스트](#2-spring-jdbc-테스트)
     - 3. [SELECT, UPDATE, DELETE 쿼리문 실행](#3-select-update-delete-쿼리문-실행)
@@ -288,6 +289,12 @@ RowBounds rowBounds = new RowBounds(offset,pageInfo.getBoardLimit());
 
 # 스프링 연습한 코드 저장
 ([맨 위로](#목차))
+
+### 0. 스프링을 활용한 간단한 CRUD 게시판 만들기 예시   
+- [여기](https://github.com/junu0516/Java-Practice/tree/main/Spring_Practice/SpringP) 에서 기능별 플로우를 확인하자
+- 아래 스프링 연습 코드는 설정파일은 Java config 클래스를 만들었지만 위의 예시는 xml파일을 기반으로 설정하였음
+- root-context.xml 과 servlet-context.xml의 용도를 잘 구분하자
+
 ### 1. DI, IoC
 - 스프링 DI와 IoC의 원리에 대해서는 [여기](https://junu0516.tistory.com/87?category=941266)를 참고하자   
 
