@@ -8,8 +8,8 @@ import org.edwith.webbe.securityexam.service.security.UserRoleEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MemberServiceImpl implements MemberService {
-
+public class MemberServiceImpl implements MemberService { //MemberService의 구현체
+	
 	@Override
 	public UserEntity getUser(String loginUserId) {
 	

@@ -32,7 +32,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	
-
+	/*
+	 * AuthenticationFilter가 아이디/암호 입력 후, 로그인 처리를 위한 필터로서 기능함
+	 * 여기서 아이디에 해당하는 정보를 DB로부터 읽어들일 때 UserDetailsService 인터페이스를 구현한 객체를 활용하는데,
+	 * CustomUserDetailsService가 여기서 이러한 객체인 것
+	 * 
+	 * */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
@@ -56,7 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/members/loginform") //로그인 폼 경로
 				.usernameParameter("userId") //로그인 폼에서의 아이디 관련 input 태그의 이름은 userId이어야 한다는 것
 				.passwordParameter("password") //마찬가지로 비밀번호 관련 input 태그의 이름이 password이어야 한다는 것
-				.loginProcessingUrl("/authenticate") //아이디와 암호를 입력받아 로그인 처리를 하게 될 url
+				.loginProcessingUrl("/authenticate") //아이디와 암호를 입력받아 로그인 처리를 하게 될 url ... 이에 대한 처리는 직접 구현하는 것이 아님(form 태그의 action 속성에 정의된 것을 기반으로 프레임워크가 처리해주는 것)
 				.failureForwardUrl("/members/loginerror?login_error=1") //로그인 실패시 이동할 에러페이지 경로
 				.defaultSuccessUrl("/",true) //로그인 성공시 리다이렉트할 경로
 				.permitAll() //permitAll이 붙으면 로그인 폼은 아무나 접근 가능하다는 것

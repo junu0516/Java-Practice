@@ -5,7 +5,10 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-/*UserDetails 인터페이스를 구현하는 클래스*/
+/*
+ * UserDetails 인터페이스를 구현하는 클래스
+ * DB에서 읽어들인 정보가 UserDetails를 구현한 CustomUserDetails 클래스에 저장되는 것
+ * */
 public class CustomUserDetails implements UserDetails {
 	 
 	private String username;

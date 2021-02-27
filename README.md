@@ -421,6 +421,37 @@ RowBounds rowBounds = new RowBounds(offset,pageInfo.getBoardLimit());
 - [CalculatorService.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/service/CalculatorService.java), [CalculatorResult.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/calculator/src/main/java/org/edwith/webbe/calculator/dto/CalculatorResult.java) : Service, DTO 클래스
 
 ### 8. Mock 객체를 활용하여 테스트코드 작성하기
+- 자세한 설명은 [여기](https://junu0516.tistory.com/97)에 정리해두었음
+- [GuestbookApiControllerTest.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/controller/GuestbookApiControllerTest.java) : GuestbookApiController 클래스의 테스트 클래스
+    - __`@RunWith`__ : 해당 클래스가 JUnit 기반의 테스트 클래스임을 의미   
+    - __`@Mock`__ : 가짜로 사용할 Mock 객체임을 명시하는 어노테이션
+    - __`@InjectMocks`__ : Mock 객체를 인스턴스로 활용할 객체에 명시 
+    - guestbookService 객체를 Mock으로 선언 후, 이를 활용할 guestbookApiController 객체에 @InjectMocks를 선언해둔 것
+
+- 이후 __`@Before`__ 어노테이션을 통해 테스트 실행 전 호출할 메소드를 정의
+```
+@Before
+public void createController() {
+     MockitoAnnotations.initMocks(this);
+     mockMvc = MockMvcBuilders.standaloneSetup(guestbookApiController).build();
+}
+```
+- @Mock이 붙은 필드를 Mock 객체로 초기화한 후, 컨트롤러를 테스트하기 위한 mockMvc를 초기화한 것
+
+- __`@Test`__ 가 붙은 메소드가 직접 컨트롤러 클래스를 테스트하게 될 메소드가 됨
+    - 테스트 메소드는 아래와 같이 동작
+    - when( 목객체.목객체메소드호출() ).threnReturn(목객체 메소드가 리턴 할 값)
+    - 이후 요청을 생성할 객체를 생성하고 요청 처리 결과를 정의하면 테스트 메소드의 정의도 끝난 것
+```
+//위에서 guestbook1 객체 생성
+List<Guestbook> list = Arrays.asList(guestbook1);
+when(guestbookService.getGuestbooks(0)).thenReturn(list); //guestbookService의 getGuestbooks() 메소드 실행하면, list를 리턴
+
+RequestBuilder reqBuilder = MockMvcRequestBuilders.get("/guestbooks").contentType(MediaType.APPLICATION_JSON); // /guestbooks로 application/json 형식의 요청을 보내겠다는 것
+mockMvc.perform(reqBuilder).andExpect(status().isOk()).andDo(print()); //요청이 정상적으로 수행되어 상태코드가 200일 경우 상태값을 출력
+
+verify(guestbookService).getGuestbooks(0);
+```
 
 ### 9. 스프링에서 쿠키와 세션 다루기
 - [GuestbookController.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/guestbook/src/main/java/com/junu/spring/guestbook/controller/GuestbookController.java) : list 메소드에 쿠키를 활용하여 방문자수 정보를 업데이트 하는 로직을 추가
@@ -484,9 +515,11 @@ public class UserController {
 ```
 
 ### 10. Spring Security 사용하기
+- Spring Security 프레임워크에 대한 설명은 [여기](https://junu0516.tistory.com/100)를 참고하자   
 - [WebAppInitializer.java](https://github.com/junu0516/Java-Practice/blob/main/Spring_Practice/securityexam/src/main/java/org/edwith/webbe/securityexam/config/WebAppInitializer.java) : 여기서 사용할 프로젝트는 web.xml 대신 WebAppInitializer 클래스를 사용   
     - __`AbstractAnnotationConfigDispatcherServletInitializer`__ 클래스를 상속받아 web.xml 대체
-    - 맨 처음 서버 구동시 톰캣이 web.xml을 찾지 않아도 되도록 pom.xml에서 아래 설정을 반드시 해줌
+    - 맨 처음 서버 구동시 톰캣이 web.xml을 찾지 않아도 되도록 pom.xml에서 아래 설정을 반드시 해줌   
+    - 이후 web.xml을 삭제해도 미리 설정해뒀기 때문에 오류가 발생하지 않음
 ```
 <failOnMissingWebXml>false</failOnMissingWebXml>
 ```
