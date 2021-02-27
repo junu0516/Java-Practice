@@ -24,7 +24,7 @@ public class MvcConfig implements WebMvcConfigurer {
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		
-		registry.jsp("/WEB-INF/view/","jsp");
+		registry.jsp("/WEB-INF/view/",".jsp");
 	}
 
 	// "/"로 요청시 바로 main.jsp로 redirect 하도록 설정
