@@ -30,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService  {
 	//로그인한 사용자의 정보를 DB에서 읽어들여 UserDetails를 구현한 객체를 반환
 	@Override
 	public UserDetails loadUserByUsername(String loginId) throws UsernameNotFoundException {
-		
+		System.out.println("DB로부터 사용자 읽어들이기 시작");
 		UserEntity customUser = userdbService.getUser(loginId); //로그인한 아이디를 통해 이에 해당하는 유저 정보를 DB로부터 읽어들임
 		if(customUser == null) {
 			throw new UsernameNotFoundException("입력한 아이디에 해당하는 사용자를 찾을 수 없습니다.");

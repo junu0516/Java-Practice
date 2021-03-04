@@ -48,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
+		System.out.println("security 설정");
 		//인증, 인가에 대한 설정
 		http.csrf().disable() //csrf : post 방식으로 값을 전송시 토큰사용을 위한 보안 설정 -> 여기서는 편의상 이를 disable 시켜서 끈 것
 			//보통 csrf가 기본으로 설정되어 있는데, 보안성이 높아지지만 초기에는 불편하기 때문에 일단 끈 것

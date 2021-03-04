@@ -1,22 +1,22 @@
 package org.edwith.webbe.securityexam.config;
 
-import javax.servlet.Filter;
-
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.*;
 
 //web.xml을 대체할 클래스
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-
+		
 		return new Class<?>[] {ApplicationConfig.class,SecurityConfig.class};
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		
+
 		return new Class<?>[] {MvcConfig.class};
 	}
 
@@ -27,7 +27,6 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 		 * 여기서는 /로 들어오는 모든 요청을 처리하기 위한 매핑을 설정
 		 * 
 		 * */
-		
 		return new String[] {"/"};
 	}
 

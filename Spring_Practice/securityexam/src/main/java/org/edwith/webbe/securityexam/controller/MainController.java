@@ -1,6 +1,11 @@
 package org.edwith.webbe.securityexam.controller;
 
+
+import java.security.Principal;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -8,9 +13,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class MainController {
 	
 	@RequestMapping("/main")
-	@ResponseBody
-	public String main() {
-		return "main page";
+	public String main(Principal principal, ModelMap modelMap) {
+		
+		System.out.println("메인페이지 호출");
+		if(principal!=null) {
+			String userId = principal.getName();
+			modelMap.addAttribute("userId",userId);
+		}
+		
+		return "main";
 	}
 	
 	//실제 컨트롤러 동작시켜보면 아래 url로 접속할 경우 403 메시지(Access Denied)를 확인할 수 있음

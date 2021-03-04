@@ -31,7 +31,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	//MvcConfig.class를 직접 작성해야 함
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		// TODO Auto-generated method stub
+		System.out.println("MvcConfig 실행");
 		return new Class<?>[] {MvcConfig.class};
 	}
 	
